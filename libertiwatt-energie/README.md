@@ -51,3 +51,19 @@ l'environnement de production de la maquette. À corriger si le périmètre rée
 - Balisage `LocalBusiness` + `FAQPage` (Schema.org) pour le référencement local.
 - Connexion du formulaire à un CRM et suivi des conversions du simulateur.
 - Photos de chantiers réels, portraits d'équipe, logos des certifications.
+
+## Publication
+
+Maquette servie en fichier statique, hors WordPress, sur le site Horizon Vendée :
+
+**https://www.horizon-vendee.fr/maquettes/libertiwatt-energie/**
+
+- Fichier : `maquettes/libertiwatt-energie/index.html` à la racine du site
+  (copie exacte de `standalone.html`, md5 vérifié après transfert).
+- Non indexable : balise `robots noindex, nofollow, noarchive, nosnippet` +
+  en-tête `X-Robots-Tag` posé par `maquettes/.htaccess`.
+- Invisible pour le site : ce n'est pas une page WordPress, elle n'apparaît
+  ni dans les menus, ni dans les pages, ni dans le sitemap.
+- Pour la mettre à jour : régénérer `standalone.html`, pousser sur GitHub,
+  puis faire retélécharger le fichier par le serveur.
+- Pour la retirer : supprimer le dossier `maquettes/` à la racine du site.
