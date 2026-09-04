@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="description" content="Maquette de présentation — LibertiWatt-Énergie. Document de travail, non contractuel.">
+<title>LibertiWatt-Énergie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --petrol-900:#071A20;
+  --petrol-850:#09212A;
+  --petrol-800:#0C2932;
+  --petrol-700:#123A45;
+  --paper-100:#E7EDEA;
+  --paper-200:#D9E2DE;
+  --soleil:#FFB13B;
+  --soleil-deep:#E8871E;
+  --menthe:#8FD8C2;
+
+  /* band tokens (dark by default — the brand's world) */
+  --bg:var(--petrol-900);
+  --fg:#E9F1EF;
+  --muted:#93AAAE;
+  --line:rgba(233,241,239,.15);
+  --surface:#0C242C;
+  --surface-2:#0F2C36;
+  --accent-text:var(--soleil);
+
+  --maxw:1240px;
+  --pad:clamp(20px,5vw,64px);
+  --r-s:6px; --r-m:14px; --r-l:26px;
+
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+
+  --t-xs:.75rem; --t-sm:.875rem; --t-base:1.0625rem; --t-md:1.1875rem;
+  --t-lg:1.4rem; --t-xl:clamp(1.7rem,3vw,2.1rem);
+  --t-2xl:clamp(2.05rem,4.6vw,3.25rem);
+  --t-3xl:clamp(2.35rem,5.1vw,4rem);
+}
+.band--light{
+  --bg:var(--paper-100);
+  --fg:#06171C;
+  --muted:#4C6369;
+  --line:rgba(6,23,28,.16);
+  --surface:#F3F7F5;
+  --surface-2:#FFFFFF;
+  --accent-text:#A2570B;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+body{
+  margin:0;background:var(--petrol-900);color:#E9F1EF;
+  font-family:var(--f-body);font-size:var(--t-base);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--soleil);outline-offset:3px;border-radius:3px}
+
+/* ============ LAYOUT PRIMITIVES ============ */
+.band{background:var(--bg);color:var(--fg);position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.sect{padding-block:clamp(64px,9vw,124px)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:14px;margin:0 0 22px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+.eyebrow b{color:var(--accent-text);font-weight:500}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:700;font-stretch:112%;
+  letter-spacing:-.022em;line-height:1.02;text-wrap:balance;margin:0}
+h2{font-size:var(--t-2xl)}
+h3{font-size:var(--t-lg);font-stretch:106%;letter-spacing:-.012em;line-height:1.15}
+p{margin:0}
+.lede{font-size:var(--t-md);color:var(--muted);max-width:62ch;line-height:1.62}
+.mono{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;justify-content:center;
+  font-family:var(--f-body);font-weight:600;font-size:var(--t-sm);
+  padding:15px 24px;border-radius:100px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;transition:transform .18s ease,background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--sun{background:var(--soleil);color:#20140A;box-shadow:0 10px 30px -14px rgba(255,177,59,.85)}
+.btn--sun:hover{background:#FFC163}
+.btn--ghost{border-color:var(--line);color:var(--fg);background:transparent}
+.btn--ghost:hover{border-color:var(--fg)}
+.btn svg{flex:none}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:60;background:rgba(7,26,32,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(233,241,239,.1)}
+.nav__in{display:flex;align-items:center;gap:28px;height:74px;max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:#E9F1EF;flex:none}
+.logo__mark{width:34px;height:34px;flex:none}
+.logo__txt{font-family:var(--f-display);font-weight:700;font-stretch:118%;font-size:1.02rem;letter-spacing:-.01em;line-height:1}
+.logo__txt span{display:block;font-family:var(--f-mono);font-size:.56rem;letter-spacing:.28em;color:var(--soleil);font-weight:400;margin-top:3px}
+.nav__links{display:flex;gap:26px;margin-left:auto;align-items:center}
+.nav__links a{font-size:.9rem;text-decoration:none;color:#B9CBCB;transition:color .16s}
+.nav__links a:hover{color:#E9F1EF}
+.nav__links a.btn--sun{color:#20140A}
+.nav__links a.btn--sun:hover{color:#20140A}
+.nav__cta{margin-left:6px}
+.nav__burger{display:none;margin-left:auto;background:none;border:1px solid rgba(233,241,239,.22);
+  border-radius:8px;width:42px;height:38px;color:#E9F1EF;cursor:pointer;align-items:center;justify-content:center}
+@media (max-width:940px){
+  .nav__links{position:fixed;inset:74px 0 auto 0;background:#09212A;flex-direction:column;
+    align-items:stretch;gap:0;padding:10px var(--pad) 26px;border-bottom:1px solid rgba(233,241,239,.12);
+    transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+  .nav__links[data-open="true"]{opacity:1;transform:none;pointer-events:auto}
+  .nav__links a{padding:14px 0;border-bottom:1px solid rgba(233,241,239,.09);font-size:1rem}
+  .nav__cta{margin:16px 0 0}
+  .nav__burger{display:inline-flex}
+}
+</style>
+<style>
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding-block:clamp(52px,7vw,88px) clamp(56px,8vw,96px)}
+.hero::before{
+  content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;
+  background:radial-gradient(58% 52% at 22% 8%,rgba(255,177,59,.20),transparent 62%),
+             radial-gradient(46% 44% at 88% 26%,rgba(143,216,194,.14),transparent 66%);
+  pointer-events:none;
+}
+.hero__grid{position:relative;display:grid;grid-template-columns:1.03fr .97fr;gap:clamp(32px,5vw,68px);align-items:center}
+@media (max-width:1020px){.hero__grid{grid-template-columns:1fr;gap:44px}}
+.hero h1{font-size:var(--t-3xl);font-stretch:118%;letter-spacing:-.032em;margin:0 0 26px}
+.hero h1 em{font-style:normal;color:var(--soleil);display:block}
+.hero__tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:var(--t-xs);
+  letter-spacing:.16em;text-transform:uppercase;color:#CBDCDA;border:1px solid var(--line);
+  padding:8px 15px;border-radius:100px;margin-bottom:26px}
+.hero__tag i{width:7px;height:7px;border-radius:50%;background:var(--soleil);
+  box-shadow:0 0 0 0 rgba(255,177,59,.6);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(255,177,59,0)}100%{box-shadow:0 0 0 0 rgba(255,177,59,0)}}
+.hero__cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:38px;padding-top:26px;border-top:1px solid var(--line)}
+.trust li{display:flex;align-items:center;gap:9px;font-size:var(--t-sm);color:#B7C9C8;list-style:none}
+.trust ul{display:contents}
+.trust svg{color:var(--menthe);flex:none}
+ul.trust{margin:38px 0 0;padding:0}
+.anim-up{animation:up .8s cubic-bezier(.2,.7,.25,1) both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.d1{animation-delay:.05s}.d2{animation-delay:.14s}.d3{animation-delay:.23s}.d4{animation-delay:.32s}
+
+/* ============ FLUX PANEL ============ */
+.panel{
+  background:linear-gradient(168deg,#0E2E39,#0A222B);
+  border:1px solid rgba(143,216,194,.2);border-radius:var(--r-l);
+  padding:clamp(18px,2.4vw,26px);box-shadow:0 40px 80px -50px #000;
+}
+.panel__top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:6px}
+.panel__title{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:#9FB8B7}
+.live{white-space:nowrap;display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.68rem;
+  letter-spacing:.14em;color:var(--menthe);text-transform:uppercase}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--menthe);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.flux{width:100%;height:auto;display:block}
+.flux .wire{fill:none;stroke-width:2;stroke-linecap:round}
+.flux .flow{fill:none;stroke-width:2.4;stroke-linecap:round;stroke-dasharray:5 11;animation:dash 1.15s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-32}}
+.flux text{font-family:"IBM Plex Mono",monospace}
+.panel__readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(143,216,194,.16);
+  border:1px solid rgba(143,216,194,.16);border-radius:var(--r-m);overflow:hidden;margin-top:14px}
+.readout{background:#0B2731;padding:13px 14px}
+.readout dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8AA3A4;margin:0 0 5px}
+.readout dd{margin:0;font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:1.32rem;letter-spacing:-.02em}
+.readout dd small{font-size:.7rem;font-weight:500;color:#9FB8B7;font-family:var(--f-body);margin-left:4px}
+.readout--sun dd{color:var(--soleil)}
+.readout--mint dd{color:var(--menthe)}
+.panel__foot{margin-top:12px;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;color:#7C9497;text-transform:uppercase}
+
+/* ============ SIMULATEUR ============ */
+.sim{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,46px);align-items:start}
+@media (max-width:960px){.sim{grid-template-columns:1fr}}
+.field{margin-bottom:26px}
+.field__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.field__label{font-size:var(--t-sm);font-weight:600}
+.field__val{font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:1.28rem;color:var(--soleil);font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:3px;
+  background:linear-gradient(90deg,var(--soleil) var(--fill,45%),rgba(233,241,239,.18) var(--fill,45%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+  background:#0B2731;border:2.5px solid var(--soleil);cursor:grab;box-shadow:0 4px 14px -4px rgba(0,0,0,.8)}
+input[type=range]::-moz-range-thumb{width:19px;height:19px;border-radius:50%;background:#0B2731;
+  border:2.5px solid var(--soleil);cursor:grab}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font-family:var(--f-body);font-size:var(--t-sm);padding:10px 16px;border-radius:100px;
+  border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;transition:.16s}
+.seg button:hover{border-color:var(--fg)}
+.seg button[aria-pressed="true"]{background:var(--soleil);border-color:var(--soleil);color:#20140A;font-weight:600}
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:center;gap:12px;font-size:var(--t-sm);cursor:pointer}
+.opt input{appearance:none;-webkit-appearance:none;width:44px;height:25px;border-radius:100px;flex:none;
+  background:rgba(233,241,239,.16);border:1px solid var(--line);position:relative;cursor:pointer;transition:background .18s}
+.opt input::after{content:"";position:absolute;top:2px;left:2px;width:19px;height:19px;border-radius:50%;
+  background:#CBDCDA;transition:transform .18s ease,background .18s}
+.opt input:checked{background:rgba(255,177,59,.28);border-color:rgba(255,177,59,.6)}
+.opt input:checked::after{transform:translateX(19px);background:var(--soleil)}
+.results{background:linear-gradient(168deg,#0E2E39,#0A222B);border:1px solid rgba(143,216,194,.2);
+  border-radius:var(--r-l);padding:clamp(20px,2.6vw,30px)}
+.res-hero{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 26px;padding-bottom:20px;border-bottom:1px solid rgba(143,216,194,.18)}
+.res-hero__big{font-family:var(--f-display);font-stretch:118%;font-weight:700;
+  font-size:clamp(2.6rem,6vw,3.7rem);letter-spacing:-.035em;color:var(--soleil);line-height:.94;font-variant-numeric:tabular-nums}
+.res-hero__cap{font-size:var(--t-sm);color:#9FB8B7;max-width:24ch;padding-bottom:5px}
+.res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 28px;padding-block:22px}
+@media (max-width:480px){.res-grid{grid-template-columns:1fr}}
+.res dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8AA3A4;margin-bottom:5px}
+.res dd{margin:0;font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:1.5rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.res dd small{font-family:var(--f-body);font-weight:500;font-size:.72rem;color:#9FB8B7;margin-left:3px}
+.bars{padding-top:20px;border-top:1px solid rgba(143,216,194,.18);display:grid;gap:14px}
+.bar__row{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:14px}
+@media (max-width:520px){.bar__row{grid-template-columns:96px 1fr auto;gap:10px}}
+.bar__lbl{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#9FB8B7}
+.bar__track{display:block;height:12px;border-radius:100px;background:rgba(233,241,239,.09);overflow:hidden}
+.bar__fill{display:block;height:100%;border-radius:100px;transition:width .5s cubic-bezier(.2,.7,.25,1)}
+.bar__fill--now{background:repeating-linear-gradient(115deg,#3C5C64,#3C5C64 6px,#33535B 6px,#33535B 12px)}
+.bar__fill--after{background:linear-gradient(90deg,var(--soleil-deep),var(--soleil))}
+.bar__val{font-family:var(--f-display);font-stretch:108%;font-weight:700;font-size:.98rem;font-variant-numeric:tabular-nums;min-width:78px;text-align:right}
+.hyp{margin-top:18px;font-family:var(--f-mono);font-size:.66rem;line-height:1.75;letter-spacing:.02em;color:#7C9497}
+</style>
+<style>
+/* ============ SOLUTIONS ============ */
+.solutions{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(20px,2.4vw,30px);align-items:stretch}
+@media (max-width:900px){.solutions{grid-template-columns:1fr}}
+.sol-lead{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:22px}
+.sol-lead h3{font-size:var(--t-xl);font-stretch:114%}
+.sol-lead__badge{align-self:flex-start;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.16em;
+  text-transform:uppercase;background:var(--soleil);color:#20140A;padding:6px 12px;border-radius:100px;font-weight:500}
+.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;margin-top:auto}
+.spec{background:var(--surface-2);padding:14px 16px}
+.spec dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.spec dd{margin:0;font-family:var(--f-display);font-stretch:108%;font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.sol-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.sol{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:24px 4px;border-bottom:1px solid var(--line);align-items:start}
+.sol__ico{width:44px;height:44px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--accent-text)}
+.sol h4{font-family:var(--f-display);font-size:1.06rem;font-stretch:106%;letter-spacing:-.01em;margin-bottom:6px}
+.sol p{font-size:var(--t-sm);color:var(--muted);max-width:52ch}
+.sol p.sol__meta{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);margin-top:9px}
+
+/* ============ PARCOURS ============ */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:14px}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.step{padding:26px 22px 30px 0;border-top:2px solid var(--line);position:relative;display:flex;flex-direction:column}
+.step+.step{padding-left:22px}
+@media (max-width:1000px){.step+.step{padding-left:0}.step{padding-right:22px}}
+.step::before{content:"";position:absolute;top:-2px;left:0;width:0;height:2px;background:var(--soleil);
+  transition:width 1s cubic-bezier(.2,.7,.25,1)}
+.step[data-lit="true"]::before{width:100%}
+.step__when{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soleil);margin-bottom:12px}
+.step h4{font-family:var(--f-display);font-stretch:108%;font-size:1.08rem;margin-bottom:9px;letter-spacing:-.012em}
+.step p{font-size:var(--t-sm);color:var(--muted)}
+.step__dur{margin-top:auto;align-self:flex-start;padding-top:0;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:100px;padding:5px 11px}
+
+/* ============ PREUVE ============ */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+@media (max-width:900px){.proof{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 26px}
+.stat__n{font-family:var(--f-display);font-stretch:118%;font-weight:700;font-size:clamp(2.2rem,4.4vw,3.05rem);
+  letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.stat__n span{font-size:.42em;letter-spacing:-.01em;margin-left:3px;color:var(--accent-text)}
+.stat__l{font-size:var(--t-sm);color:var(--muted);margin-top:9px;max-width:26ch}
+.case{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.case__head{padding:22px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.case__head h3{font-size:1.12rem}
+.case table{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
+.case td{padding:12px 26px;border-bottom:1px solid var(--line)}
+.case tr:last-child td{border-bottom:0}
+.case td:first-child{color:var(--muted);width:52%}
+.case td:last-child{color:var(--fg);text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:.82rem}
+.case__hl td:last-child{color:var(--accent-text);font-weight:500}
+
+/* ============ AIDES ============ */
+.aides{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,20px)}
+@media (max-width:1000px){.aides{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.aides{grid-template-columns:1fr}}
+.aide{border:1px solid var(--line);border-radius:var(--r-m);padding:24px 22px;background:var(--surface-2);
+  display:flex;flex-direction:column;gap:10px}
+.aide p.aide__amt{font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:1.72rem;letter-spacing:-.03em;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.aide h4{font-family:var(--f-display);font-size:.98rem;font-stretch:106%}
+.aide p{font-size:var(--t-sm);color:var(--muted)}
+
+/* ============ TÉMOIGNAGES ============ */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,26px)}
+@media (max-width:900px){.quotes{grid-template-columns:1fr}}
+.quote{border-left:2px solid var(--soleil);padding:4px 0 4px 22px;display:flex;flex-direction:column;gap:16px}
+.quote blockquote{margin:0;font-size:var(--t-md);line-height:1.5;font-family:var(--f-display);
+  font-stretch:104%;font-weight:400;letter-spacing:-.012em}
+.quote figcaption{font-size:var(--t-sm);color:var(--muted)}
+.quote figcaption b{display:block;color:var(--fg);font-weight:600;margin-bottom:2px}
+
+/* ============ FAQ ============ */
+.faq{max-width:900px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;
+  font-family:var(--f-display);font-stretch:106%;font-weight:600;font-size:1.06rem;letter-spacing:-.012em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;
+  border-right:2px solid var(--soleil);border-bottom:2px solid var(--soleil);
+  transform:translateY(-70%) rotate(45deg);transition:transform .22s ease}
+details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+details p{padding:0 44px 24px 0;color:var(--muted);max-width:70ch;font-size:var(--t-base)}
+
+/* ============ CONTACT ============ */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,4vw,60px);align-items:start}
+@media (max-width:900px){.contact{grid-template-columns:1fr}}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:620px){.form{grid-template-columns:1fr}}
+.form .full{grid-column:1/-1}
+label.lbl{display:block;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+input[type=text],input[type=tel],input[type=email],select,textarea{
+  width:100%;font-family:var(--f-body);font-size:var(--t-base);color:var(--fg);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:13px 15px;transition:border-color .16s}
+input:focus,select:focus,textarea:focus{border-color:var(--soleil)}
+textarea{resize:vertical;min-height:104px}
+::placeholder{color:var(--muted);opacity:.75}
+.form__note{font-size:var(--t-xs);color:var(--muted);font-family:var(--f-mono);letter-spacing:.04em;line-height:1.7}
+.sent{grid-column:1/-1;border:1px solid var(--soleil);background:rgba(255,177,59,.1);
+  border-radius:10px;padding:14px 16px;font-size:var(--t-sm);display:none}
+.sent[data-show="true"]{display:block}
+.contact-info{display:flex;flex-direction:column;gap:22px}
+.ci{display:flex;gap:14px;align-items:flex-start}
+.ci svg{color:var(--accent-text);flex:none;margin-top:3px}
+.ci b{display:block;font-family:var(--f-display);font-stretch:106%;font-size:1.02rem;margin-bottom:3px}
+.ci span{font-size:var(--t-sm);color:var(--muted)}
+
+/* ============ CTA + FOOTER ============ */
+.cta-strip{background:linear-gradient(112deg,var(--soleil),#FFD08A 62%,#FFE3B8);color:#20140A;
+  border-radius:var(--r-l);padding:clamp(28px,4vw,52px);display:flex;flex-wrap:wrap;gap:26px;
+  align-items:center;justify-content:space-between}
+.cta-strip h2{font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:20ch;font-stretch:116%}
+.cta-strip p{font-size:var(--t-sm);opacity:.78;margin-top:12px;max-width:44ch}
+.btn--ink{background:#0A222B;color:#F3F8F6}
+.btn--ink:hover{background:#123A45}
+footer{border-top:1px solid rgba(233,241,239,.13);padding-block:52px 40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+.foot h5{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+  color:#8AA3A4;margin:0 0 14px;font-weight:400}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.foot a{font-size:var(--t-sm);color:#B9CBCB;text-decoration:none}
+.foot a:hover{color:#E9F1EF}
+.foot p{font-size:var(--t-sm);color:#8AA3A4;max-width:34ch;margin-top:14px}
+.foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid rgba(233,241,239,.1);
+  display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.08em;color:#7C9497;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="nav__in">
+    <a class="logo" href="#top" aria-label="LibertiWatt-Énergie, accueil">
+      <svg class="logo__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="18.5" stroke="#FFB13B" stroke-width="1.6"></circle>
+        <path d="M20 4.5A15.5 15.5 0 0 1 20 35.5Z" fill="#FFB13B" opacity=".22"></path>
+        <path d="M21.6 9.5 12.4 21.4h6.1l-1.4 9.4 9.5-12.1h-6.3z" fill="#FFB13B"></path>
+      </svg>
+      <span class="logo__txt">LibertiWatt<span>Énergie</span></span>
+    </a>
+    <button class="nav__burger" id="burger" aria-expanded="false" aria-controls="navlinks" aria-label="Ouvrir le menu">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M0 1h18M0 6h18M0 11h18" stroke="currentColor" stroke-width="1.6"></path></svg>
+    </button>
+    <nav class="nav__links" id="navlinks">
+      <a href="#simulateur">Simulateur</a>
+      <a href="#solutions">Nos solutions</a>
+      <a href="#parcours">Le parcours</a>
+      <a href="#preuve">Réalisations</a>
+      <a href="#aides">Aides</a>
+      <a href="#faq">Questions</a>
+      <a class="btn btn--sun nav__cta" href="#contact">Étude gratuite</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="band hero" id="top">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="hero__tag anim-up d1"><i></i> Photovoltaïque · Stockage · Recharge</span>
+      <h1 class="anim-up d2">L'électricité que vous produisez <em>ne vous sera jamais facturée.</em></h1>
+      <p class="lede anim-up d3">LibertiWatt-Énergie étudie votre toiture, installe votre centrale solaire en autoconsommation et vous laisse le pilotage. Étude sous 48 h, pose par nos équipes salariées, suivi de production à vie.</p>
+      <div class="hero__cta anim-up d4">
+        <a class="btn btn--sun" href="#simulateur">
+          Estimer mes économies
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m-4.5-4.5L13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a class="btn btn--ghost" href="#contact">Parler à un technicien</a>
+      </div>
+      <ul class="trust anim-up d4">
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg> RGE QualiPV 36 Élec</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg> Assurance décennale</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg> Panneaux garantis 25 ans</li>
+        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8.5 6 12l7.5-8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg> Zéro sous-traitance</li>
+      </ul>
+    </div>
+
+    <!-- Panneau de supervision -->
+    <div class="panel anim-up d3">
+      <div class="panel__top">
+        <span class="panel__title">Votre installation — 13 h 40</span>
+        <span class="live"><i></i> En direct</span>
+      </div>
+      <svg class="flux" viewBox="0 0 520 300" role="img" aria-label="Schéma des flux d'énergie : les panneaux produisent 4,2 kW, la maison consomme 1,8 kW, la batterie se charge, le surplus part sur le réseau.">
+        <g fill="none">
+          <path class="wire" d="M95,84 C95,124 148,150 212,150" stroke="rgba(255,177,59,.22)"></path>
+          <path class="wire" d="M212,150 C148,150 95,176 95,196" stroke="rgba(143,216,194,.2)"></path>
+          <path class="wire" d="M308,150 C372,150 425,176 425,196" stroke="rgba(143,216,194,.2)"></path>
+          <path class="wire" d="M308,150 C372,150 425,124 425,84" stroke="rgba(143,216,194,.16)"></path>
+          <path class="flow" d="M95,84 C95,124 148,150 212,150" stroke="#FFB13B"></path>
+          <path class="flow" d="M212,150 C148,150 95,176 95,196" stroke="#8FD8C2" style="animation-duration:1.9s"></path>
+          <path class="flow" d="M308,150 C372,150 425,176 425,196" stroke="#8FD8C2" style="animation-duration:1.4s"></path>
+          <path class="flow" d="M308,150 C372,150 425,124 425,84" stroke="rgba(143,216,194,.55)" style="animation-duration:2.4s"></path>
+        </g>
+        <g>
+          <rect x="30" y="20" width="130" height="64" rx="13" fill="#0B2731" stroke="rgba(255,177,59,.42)"></rect>
+          <text x="46" y="44" fill="#9FB8B7" font-size="10.5" letter-spacing="1.6">PANNEAUX</text>
+          <text x="46" y="68" fill="#FFB13B" font-size="19" font-weight="500">4,2 kW</text>
+
+          <rect x="360" y="20" width="130" height="64" rx="13" fill="#0B2731" stroke="rgba(143,216,194,.26)"></rect>
+          <text x="376" y="44" fill="#9FB8B7" font-size="10.5" letter-spacing="1.6">RÉSEAU</text>
+          <text x="376" y="68" fill="#E9F1EF" font-size="19" font-weight="500">+1,1 kW</text>
+
+          <rect x="30" y="196" width="130" height="64" rx="13" fill="#0B2731" stroke="rgba(143,216,194,.26)"></rect>
+          <text x="46" y="220" fill="#9FB8B7" font-size="10.5" letter-spacing="1.6">BATTERIE</text>
+          <text x="46" y="244" fill="#8FD8C2" font-size="19" font-weight="500">74 %</text>
+
+          <rect x="360" y="196" width="130" height="64" rx="13" fill="#0B2731" stroke="rgba(143,216,194,.26)"></rect>
+          <text x="376" y="220" fill="#9FB8B7" font-size="10.5" letter-spacing="1.6">MAISON</text>
+          <text x="376" y="244" fill="#E9F1EF" font-size="19" font-weight="500">1,8 kW</text>
+
+          <circle cx="260" cy="150" r="48" fill="#0E323D" stroke="rgba(255,177,59,.5)"></circle>
+          <circle cx="260" cy="150" r="59" fill="none" stroke="rgba(255,177,59,.13)"></circle>
+          <text x="260" y="145" text-anchor="middle" fill="#9FB8B7" font-size="10" letter-spacing="1.6">ONDULEUR</text>
+          <text x="260" y="167" text-anchor="middle" fill="#FFB13B" font-size="15" font-weight="500">98 %</text>
+        </g>
+      </svg>
+      <dl class="panel__readouts">
+        <div class="readout readout--sun"><dt>Produit ce jour</dt><dd>18,4<small>kWh</small></dd></div>
+        <div class="readout"><dt>Autoconsommé</dt><dd>71<small>%</small></dd></div>
+        <div class="readout readout--mint"><dt>Économisé ce jour</dt><dd>3,90<small>€</small></dd></div>
+      </dl>
+      <p class="panel__foot">Exemple de suivi — application LibertiWatt incluse</p>
+    </div>
+  </div>
+</section>
+<!-- ================= SIMULATEUR ================= -->
+<section class="band sect" id="simulateur">
+  <div class="wrap">
+    <p class="eyebrow">Simulateur — <b>30 secondes, sans coordonnées</b></p>
+    <h2>Ce que votre toit peut produire.</h2>
+    <p class="lede" style="margin:18px 0 44px">Trois réglages suffisent pour dimensionner une installation et chiffrer l'économie. Les hypothèses de calcul sont affichées : rien n'est caché derrière le résultat.</p>
+
+    <div class="sim">
+      <form id="simform" novalidate>
+        <div class="field">
+          <div class="field__head">
+            <label class="field__label" for="fact">Facture d'électricité mensuelle</label>
+            <output class="field__val" id="factOut" for="fact">180 €</output>
+          </div>
+          <input type="range" id="fact" min="60" max="400" step="5" value="180">
+        </div>
+
+        <div class="field">
+          <div class="field__head">
+            <label class="field__label" for="pente">Orientation de la toiture</label>
+          </div>
+          <div class="seg" id="orient" role="group" aria-label="Orientation de la toiture">
+            <button type="button" data-k="1" aria-pressed="true">Sud</button>
+            <button type="button" data-k="0.94" aria-pressed="false">Sud-Est / Sud-Ouest</button>
+            <button type="button" data-k="0.85" aria-pressed="false">Est / Ouest</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field__head">
+            <label class="field__label">Équipements du foyer</label>
+          </div>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" id="ve"> Voiture électrique rechargée à domicile</label>
+            <label class="opt"><input type="checkbox" id="ecs" checked> Ballon d'eau chaude ou pompe à chaleur</label>
+            <label class="opt"><input type="checkbox" id="bat"> Batterie de stockage 10 kWh</label>
+          </div>
+        </div>
+
+        <p class="mono" style="text-transform:none;letter-spacing:.02em;line-height:1.7">Résultat mis à jour en direct — une étude de toiture confirme le calepinage réel.</p>
+        <a class="btn btn--ghost" href="#contact" style="margin-top:22px">Recevoir l'estimation détaillée</a>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <div class="res-hero">
+          <span class="res-hero__big" id="rEco">1 190 €</span>
+          <span class="res-hero__cap">économisés la première année, puis indexés sur le prix de l'électricité</span>
+        </div>
+        <dl class="res-grid">
+          <div class="res"><dt>Puissance conseillée</dt><dd id="rKwc">6,0<small>kWc</small></dd></div>
+          <div class="res"><dt>Panneaux (500 Wc)</dt><dd id="rPan">12<small>modules</small></dd></div>
+          <div class="res"><dt>Production estimée</dt><dd id="rProd">6 600<small>kWh/an</small></dd></div>
+          <div class="res"><dt>Part autoconsommée</dt><dd id="rAuto">55<small>%</small></dd></div>
+          <div class="res"><dt>Sur 25 ans</dt><dd id="rVingt">34 500<small>€</small></dd></div>
+          <div class="res"><dt>Retour sur investissement</dt><dd id="rRoi">8,4<small>ans</small></dd></div>
+        </dl>
+        <div class="bars">
+          <div class="bar__row">
+            <span class="bar__lbl">Facture&nbsp;actuelle</span>
+            <span class="bar__track"><span class="bar__fill bar__fill--now" id="barNow" style="width:100%"></span></span>
+            <span class="bar__val num" id="valNow">2 160 €</span>
+          </div>
+          <div class="bar__row">
+            <span class="bar__lbl">Après solaire</span>
+            <span class="bar__track"><span class="bar__fill bar__fill--after" id="barAfter" style="width:45%"></span></span>
+            <span class="bar__val num" id="valAfter">970 €</span>
+          </div>
+          <p class="bar__lbl" style="text-transform:none;letter-spacing:.02em">Facture d'électricité annuelle, avant et après mise en service.</p>
+        </div>
+        <p class="hyp">Hypothèses : 0,21 €/kWh (tarif base), rachat du surplus 0,04 €/kWh, 1 100 kWh/an par kWc en orientation sud sans ombrage, prime à l'autoconsommation déduite. Estimation indicative, non contractuelle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLUTIONS ================= -->
+<section class="band band--light sect" id="solutions">
+  <div class="wrap">
+    <p class="eyebrow">Nos solutions — <b>installées par nos équipes</b></p>
+    <h2>Une chaîne complète, du panneau à la prise.</h2>
+    <p class="lede" style="margin:18px 0 44px">Nous posons ce que nous vendons. Un seul interlocuteur du calepinage à la mise en service, un seul numéro en cas de question dix ans plus tard.</p>
+
+    <div class="solutions">
+      <article class="sol-lead">
+        <span class="sol-lead__badge">Le cœur du métier</span>
+        <h3>Centrale photovoltaïque en autoconsommation</h3>
+        <p style="color:var(--muted)">Modules haut rendement en surimposition ou intégration, micro-onduleurs pour éviter qu'une ombre pénalise toute la chaîne, coffret AC dédié et suivi module par module. Déclaration préalable en mairie, raccordement Enedis, attestation Consuel et contrat de revente du surplus : nous montons le dossier de bout en bout.</p>
+        <dl class="specs">
+          <div class="spec"><dt>Puissances</dt><dd>3 à 9 kWc</dd></div>
+          <div class="spec"><dt>Garantie produit</dt><dd>25 ans</dd></div>
+          <div class="spec"><dt>Rendement à 25 ans</dt><dd>≥ 87 %</dd></div>
+          <div class="spec"><dt>Durée de pose</dt><dd>1 journée</dd></div>
+        </dl>
+      </article>
+
+      <div class="sol-list">
+        <article class="sol">
+          <span class="sol__ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="15" height="10" rx="2" stroke="currentColor" stroke-width="1.6"></rect><path d="M6 8.5v3M10 8v4M14 9v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+          <div>
+            <h4>Batterie de stockage</h4>
+            <p>Cellules LFP 5 à 15 kWh pour consommer le soir ce que le toit a produit l'après-midi, avec mode secours en cas de coupure réseau.</p>
+            <p class="sol__meta">+ 20 à 25 points d'autoconsommation</p>
+          </div>
+        </article>
+        <article class="sol">
+          <span class="sol__ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v10" stroke="currentColor" stroke-width="1.6"></path><path d="M3 16h10M12 9h2.5a1.5 1.5 0 0 1 1.5 1.5V13a1.5 1.5 0 0 0 1.5 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+          <div>
+            <h4>Borne de recharge IRVE</h4>
+            <p>Bornes 7,4 à 22 kW posées par un technicien qualifié IRVE, pilotables sur le surplus solaire : la voiture se recharge quand le toit produit.</p>
+            <p class="sol__meta">Recharge pilotée par la production</p>
+          </div>
+        </article>
+        <article class="sol">
+          <span class="sol__ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="3.2" stroke="currentColor" stroke-width="1.6"></circle><path d="M10 2.5v2.2M10 15.3v2.2M2.5 10h2.2M15.3 10h2.2M4.7 4.7l1.6 1.6M13.7 13.7l1.6 1.6M15.3 4.7l-1.6 1.6M6.3 13.7l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+          <div>
+            <h4>Pompe à chaleur &amp; ballon thermodynamique</h4>
+            <p>Le poste de dépense le plus lourd du foyer, associé à votre production : le chauffe-eau se déclenche aux heures solaires, pas la nuit.</p>
+            <p class="sol__meta">Éligible MaPrimeRénov'</p>
+          </div>
+        </article>
+        <article class="sol">
+          <span class="sol__ico"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2.5 8.5 10 4l7.5 4.5-7.5 4.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path><path d="M5.5 11v5M14.5 11v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span>
+          <div>
+            <h4>Ombrières &amp; toitures professionnelles</h4>
+            <p>Parkings, hangars agricoles, bâtiments d'activité : étude de structure, calcul de charge et raccordement en injection totale ou partielle.</p>
+            <p class="sol__meta">Pros, agricoles et collectivités</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= PARCOURS ================= -->
+<section class="band sect" id="parcours">
+  <div class="wrap">
+    <p class="eyebrow">Le parcours — <b>de l'appel à la mise en service</b></p>
+    <h2>Deux mois, cinq étapes, aucune zone d'ombre.</h2>
+    <p class="lede" style="margin:18px 0 10px">Le calendrier réel d'un chantier résidentiel. Les délais administratifs sont incompressibles : nous les prenons en charge et vous suivez l'avancement.</p>
+
+    <div class="steps" id="steps">
+      <article class="step">
+        <p class="step__when">Jour 0</p>
+        <h4>Étude à distance</h4>
+        <p>Relevé de votre toiture par vue aérienne, analyse de douze mois de consommation, calepinage et chiffrage.</p>
+        <span class="step__dur">Réponse sous 48 h</span>
+      </article>
+      <article class="step">
+        <p class="step__when">Jour 7</p>
+        <h4>Visite technique</h4>
+        <p>Contrôle de la charpente et de la couverture, du tableau électrique et du cheminement des câbles. Devis figé après visite.</p>
+        <span class="step__dur">1 h sur site</span>
+      </article>
+      <article class="step">
+        <p class="step__when">Jour 15</p>
+        <h4>Démarches</h4>
+        <p>Déclaration préalable en mairie, demande de raccordement Enedis, dossier de prime et contrat EDF OA. Rédigés par nous.</p>
+        <span class="step__dur">Dossier complet</span>
+      </article>
+      <article class="step">
+        <p class="step__when">Jour 45</p>
+        <h4>Pose</h4>
+        <p>Équipe de trois techniciens salariés, sécurisation de la toiture, pose des modules et du coffret, remise en état du chantier.</p>
+        <span class="step__dur">1 journée</span>
+      </article>
+      <article class="step">
+        <p class="step__when">Jour 60</p>
+        <h4>Mise en service</h4>
+        <p>Passage du Consuel, activation du compteur, réglage de l'application de suivi et formation à la lecture de votre production.</p>
+        <span class="step__dur">Suivi à vie</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PREUVE ================= -->
+<section class="band band--light sect" id="preuve">
+  <div class="wrap">
+    <p class="eyebrow">Réalisations — <b>chiffres à valider avant mise en ligne</b></p>
+    <div class="proof">
+      <div>
+        <h2 style="margin-bottom:34px">Ce que nos chantiers produisent réellement.</h2>
+        <div class="stats">
+          <div class="stat"><p class="stat__n" data-count="480">480</p><p class="stat__l">installations résidentielles mises en service</p></div>
+          <div class="stat"><p class="stat__n" data-count="2.9" data-dec="1">2,9<span>MWc</span></p><p class="stat__l">de puissance posée depuis la création</p></div>
+          <div class="stat"><p class="stat__n" data-count="71">71<span>%</span></p><p class="stat__l">d'autoconsommation moyenne avec batterie</p></div>
+          <div class="stat"><p class="stat__n" data-count="4.9" data-dec="1">4,9<span>/5</span></p><p class="stat__l">note moyenne sur 126 avis clients vérifiés</p></div>
+        </div>
+      </div>
+
+      <article class="case">
+        <div class="case__head">
+          <h3>Maison de 1978, 132 m²</h3>
+          <span class="mono">Chantier — juin</span>
+        </div>
+        <table>
+          <tbody>
+            <tr><td>Puissance installée</td><td>6,0 kWc</td></tr>
+            <tr><td>Modules</td><td>12 × 500 Wc</td></tr>
+            <tr><td>Onduleurs</td><td>Micro-onduleurs</td></tr>
+            <tr><td>Orientation / inclinaison</td><td>Sud-Ouest · 30°</td></tr>
+            <tr><td>Production mesurée</td><td>6 380 kWh/an</td></tr>
+            <tr><td>Stockage</td><td>Batterie LFP 10 kWh</td></tr>
+            <tr class="case__hl"><td>Autoconsommation constatée</td><td>68 %</td></tr>
+            <tr class="case__hl"><td>Économie 1re année</td><td>1 210 €</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AIDES ================= -->
+<section class="band band--light sect" id="aides" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Aides &amp; financement — <b>barèmes à actualiser à chaque publication tarifaire</b></p>
+    <h2>Ce que l'État prend à sa charge.</h2>
+    <p class="lede" style="margin:18px 0 40px">Nous montons les dossiers, vous ne faites l'avance d'aucune démarche. Les montants ci-dessous s'appliquent à une installation résidentielle de moins de 9 kWc.</p>
+    <div class="aides">
+      <article class="aide">
+        <p class="aide__amt">5,5 %</p>
+        <h4>TVA réduite</h4>
+        <p>Appliquée directement sur le devis pour les installations résidentielles éligibles.</p>
+      </article>
+      <article class="aide">
+        <p class="aide__amt">Prime</p>
+        <h4>Prime à l'autoconsommation</h4>
+        <p>Versée par EDF OA après mise en service, calculée au kWc installé et déduite de votre plan de financement.</p>
+      </article>
+      <article class="aide">
+        <p class="aide__amt">20 ans</p>
+        <h4>Rachat du surplus</h4>
+        <p>Contrat d'obligation d'achat : l'électricité non consommée est rachetée à tarif garanti pendant vingt ans.</p>
+      </article>
+      <article class="aide">
+        <p class="aide__amt">MPR</p>
+        <h4>MaPrimeRénov'</h4>
+        <p>Pour la pompe à chaleur et le ballon thermodynamique, sous conditions de ressources et de performance.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TÉMOIGNAGES ================= -->
+<section class="band band--light sect" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">Ils ont franchi le pas — <b>exemples à remplacer par vos avis réels</b></p>
+    <div class="quotes">
+      <figure class="quote">
+        <blockquote>« Le devis n'a pas bougé d'un euro après la visite technique. C'est la première fois que ça m'arrive sur un chantier. »</blockquote>
+        <figcaption><b>Sylvie M.</b>6,0 kWc + batterie 10 kWh</figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>« Pose le mardi, application configurée le soir même. Je regarde ma production tous les matins avec le café. »</blockquote>
+        <figcaption><b>Karim B.</b>4,5 kWc, maison de 2004</figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>« Ils ont refusé de me vendre 9 kWc parce que ma consommation ne le justifiait pas. Ça m'a convaincu. »</blockquote>
+        <figcaption><b>Thierry et Anne L.</b>3,5 kWc + ballon thermodynamique</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="band sect" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Questions fréquentes</p>
+    <h2 style="margin-bottom:38px">Ce qu'on nous demande avant de signer.</h2>
+    <div class="faq">
+      <details open>
+        <summary>Au bout de combien de temps l'installation est-elle rentabilisée ?</summary>
+        <p>Entre huit et douze ans dans la majorité des cas résidentiels, selon la puissance posée, l'orientation de la toiture et la part réellement autoconsommée. Le simulateur ci-dessus donne un ordre de grandeur ; l'étude de toiture affine le calcul avec vos douze derniers mois de consommation.</p>
+      </details>
+      <details>
+        <summary>Faut-il une autorisation pour poser des panneaux ?</summary>
+        <p>Oui : une déclaration préalable de travaux en mairie, instruite en un mois environ, et davantage en secteur protégé (avis des Architectes des Bâtiments de France). Nous constituons et déposons le dossier, y compris le plan de masse et l'insertion paysagère.</p>
+      </details>
+      <details>
+        <summary>Que devient l'électricité que je ne consomme pas ?</summary>
+        <p>Elle part sur le réseau et vous est rachetée dans le cadre d'un contrat d'obligation d'achat de vingt ans. Avec une batterie, ce surplus est d'abord stocké pour la soirée : c'est le meilleur usage possible d'un kilowattheure produit chez vous.</p>
+      </details>
+      <details>
+        <summary>Quel entretien prévoir ?</summary>
+        <p>Un contrôle visuel annuel et un nettoyage tous les deux à trois ans suffisent dans la plupart des régions. Le suivi module par module signale immédiatement une baisse de rendement anormale — vous n'attendez pas la facture pour découvrir un problème.</p>
+      </details>
+      <details>
+        <summary>Que couvrent les garanties ?</summary>
+        <p>Garantie produit de 25 ans sur les modules, garantie de rendement (au moins 87 % de la puissance initiale à 25 ans), garantie constructeur sur les micro-onduleurs, et assurance décennale sur la pose et l'étanchéité de la toiture.</p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- ================= CONTACT ================= -->
+<section class="band sect" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-strip">
+      <div>
+        <h2>L'étude de votre toiture est gratuite. Le devis aussi.</h2>
+        <p>Un technicien vous rappelle sous 24 h ouvrées, analyse votre consommation et vous dit franchement si le solaire est pertinent chez vous — y compris quand la réponse est non.</p>
+      </div>
+      <a class="btn btn--ink" href="#nom">
+        Demander mon étude
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m-4.5-4.5L13 8l-4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+
+    <div class="contact" style="margin-top:clamp(38px,5vw,64px)">
+      <div class="contact-info">
+        <p class="eyebrow" style="margin-bottom:8px">Nous joindre</p>
+        <h3 style="font-size:var(--t-xl);margin-bottom:8px">Un interlocuteur, du premier appel à la dixième année.</h3>
+        <div class="ci">
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 3h3l1.6 4-2 1.4a11 11 0 0 0 5 5L13 11.4l4 1.6v3a1.5 1.5 0 0 1-1.7 1.5C8.5 16.8 3.2 11.5 2.5 4.7A1.5 1.5 0 0 1 4 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+          <span><b>02 00 00 00 00</b><span>Du lundi au vendredi, 8 h 30 – 18 h 30</span></span>
+        </div>
+        <div class="ci">
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="1.5"></rect><path d="m3 6 7 5 7-5" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+          <span><b>contact@libertiwatt.fr</b><span>Réponse sous 24 h ouvrées</span></span>
+        </div>
+        <div class="ci">
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 17.5s6-5 6-9.5a6 6 0 1 0-12 0c0 4.5 6 9.5 6 9.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><circle cx="10" cy="8" r="2.2" stroke="currentColor" stroke-width="1.5"></circle></svg>
+          <span><b>Zone d'intervention</b><span>Agence et rayon d'intervention à préciser</span></span>
+        </div>
+        <div class="ci">
+          <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 3.5 5.2v4.6c0 4 2.8 6.9 6.5 7.7 3.7-.8 6.5-3.7 6.5-7.7V5.2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="m7.4 9.9 1.9 1.9 3.5-3.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span><b>Vos données</b><span>Utilisées uniquement pour vous recontacter, jamais revendues.</span></span>
+        </div>
+      </div>
+
+      <form class="form" id="leadform" novalidate>
+        <div>
+          <label class="lbl" for="nom">Nom et prénom</label>
+          <input type="text" id="nom" name="nom" autocomplete="name" placeholder="Camille Rousseau">
+        </div>
+        <div>
+          <label class="lbl" for="cp">Commune ou code postal</label>
+          <input type="text" id="cp" name="cp" autocomplete="postal-code" placeholder="85000">
+        </div>
+        <div>
+          <label class="lbl" for="tel">Téléphone</label>
+          <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="06 00 00 00 00">
+        </div>
+        <div>
+          <label class="lbl" for="mail">E-mail</label>
+          <input type="email" id="mail" name="mail" autocomplete="email" placeholder="camille@exemple.fr">
+        </div>
+        <div class="full">
+          <label class="lbl" for="projet">Votre projet</label>
+          <select id="projet" name="projet">
+            <option>Panneaux photovoltaïques en autoconsommation</option>
+            <option>Photovoltaïque + batterie de stockage</option>
+            <option>Borne de recharge pour véhicule électrique</option>
+            <option>Pompe à chaleur ou ballon thermodynamique</option>
+            <option>Bâtiment professionnel, agricole ou ombrière</option>
+            <option>Je ne sais pas encore, j'ai besoin de conseil</option>
+          </select>
+        </div>
+        <div class="full">
+          <label class="lbl" for="msg">Précisions (facultatif)</label>
+          <textarea id="msg" name="msg" placeholder="Type de toiture, année de la maison, montant de votre facture…"></textarea>
+        </div>
+        <div class="full" style="display:flex;flex-wrap:wrap;gap:18px;align-items:center">
+          <button class="btn btn--sun" type="submit">Demander mon étude gratuite</button>
+          <p class="form__note">Maquette — le formulaire n'envoie rien</p>
+        </div>
+        <p class="sent" id="sent" role="status">Merci, votre demande est enregistrée. Un technicien vous rappelle sous 24 h ouvrées. <em>(Message de démonstration.)</em></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="band">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:6px">
+          <svg class="logo__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="18.5" stroke="#FFB13B" stroke-width="1.6"></circle>
+            <path d="M20 4.5A15.5 15.5 0 0 1 20 35.5Z" fill="#FFB13B" opacity=".22"></path>
+            <path d="M21.6 9.5 12.4 21.4h6.1l-1.4 9.4 9.5-12.1h-6.3z" fill="#FFB13B"></path>
+          </svg>
+          <span class="logo__txt">LibertiWatt<span>Énergie</span></span>
+        </a>
+        <p>Installateur de solutions solaires en autoconsommation, de stockage et de recharge. Équipes salariées, matériel garanti, suivi de production à vie.</p>
+      </div>
+      <div>
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#solutions">Photovoltaïque</a></li>
+          <li><a href="#solutions">Batterie de stockage</a></li>
+          <li><a href="#solutions">Borne de recharge</a></li>
+          <li><a href="#solutions">Pompe à chaleur</a></li>
+          <li><a href="#solutions">Professionnels &amp; agricole</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>L'entreprise</h5>
+        <ul>
+          <li><a href="#parcours">Le parcours client</a></li>
+          <li><a href="#preuve">Nos réalisations</a></li>
+          <li><a href="#aides">Aides &amp; financement</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="#contact">Nous contacter</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Certifications</h5>
+        <ul>
+          <li>RGE QualiPV 36 Élec</li>
+          <li>Qualification IRVE</li>
+          <li>Assurance décennale</li>
+          <li>Garantie décennale étanchéité</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© LibertiWatt-Énergie — Mentions légales · Politique de confidentialité</span>
+      <span>Maquette de présentation — textes, chiffres, aides et coordonnées à valider</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- menu mobile ---- */
+  var burger = document.getElementById("burger");
+  var links  = document.getElementById("navlinks");
+  burger.addEventListener("click", function(){
+    var open = links.getAttribute("data-open") === "true";
+    links.setAttribute("data-open", String(!open));
+    burger.setAttribute("aria-expanded", String(!open));
+  });
+  links.addEventListener("click", function(e){
+    if (e.target.tagName === "A") { links.setAttribute("data-open","false"); burger.setAttribute("aria-expanded","false"); }
+  });
+
+  /* ---- simulateur ---- */
+  var PRIX_KWH = 0.21, PRIX_SURPLUS = 0.04, PROD_PAR_KWC = 1100, PRIME_KWC = 80;
+  var fact = document.getElementById("fact");
+  var factOut = document.getElementById("factOut");
+  var orient = document.getElementById("orient");
+  var ve = document.getElementById("ve"), ecs = document.getElementById("ecs"), bat = document.getElementById("bat");
+  var kOrient = 1;
+
+  function eur(n){ return Math.round(n).toLocaleString("fr-FR") + " €"; }
+  function nb(n, d){ return n.toLocaleString("fr-FR", {minimumFractionDigits:d, maximumFractionDigits:d}); }
+
+  function calc(){
+    var f = +fact.value;
+    factOut.textContent = f + " €";
+    fact.style.setProperty("--fill", ((f - fact.min) / (fact.max - fact.min) * 100) + "%");
+
+    var factureAn = f * 12;
+    var consoAn = factureAn / PRIX_KWH;
+
+    /* dimensionnement : on couvre la conso diurne, borné 3–9 kWc, arrondi 0,5 */
+    var kwc = Math.min(9, Math.max(3, Math.round((consoAn / PROD_PAR_KWC) * 0.85 * 2) / 2));
+    var prod = kwc * PROD_PAR_KWC * kOrient;
+
+    var taux = 0.45 + (ve.checked ? 0.13 : 0) + (ecs.checked ? 0.08 : 0) + (bat.checked ? 0.22 : 0);
+    taux = Math.min(0.88, taux);
+    var autoconso = Math.min(prod * taux, consoAn);
+    var surplus = Math.max(0, prod - autoconso);
+
+    var eco = autoconso * PRIX_KWH + surplus * PRIX_SURPLUS;
+    var invest = kwc * (2100 - 70 * kwc) + (bat.checked ? 6500 : 0);
+    var reste = invest - kwc * PRIME_KWC;
+    var roi = reste / eco;
+    var vingtCinq = eco * 25 * 1.12; /* indexation moyenne du prix de l'électricité */
+
+    document.getElementById("rEco").textContent = eur(eco);
+    document.getElementById("rKwc").innerHTML = nb(kwc,1) + "<small>kWc</small>";
+    document.getElementById("rPan").innerHTML = Math.round(kwc * 2) + "<small>modules</small>";
+    document.getElementById("rProd").innerHTML = (Math.round(prod/10)*10).toLocaleString("fr-FR") + "<small>kWh/an</small>";
+    document.getElementById("rAuto").innerHTML = Math.round(taux*100) + "<small>%</small>";
+    document.getElementById("rVingt").innerHTML = (Math.round(vingtCinq/100)*100).toLocaleString("fr-FR") + "<small>€</small>";
+    document.getElementById("rRoi").innerHTML = nb(roi,1) + "<small>ans</small>";
+
+    var apres = Math.max(factureAn * 0.08, factureAn - eco);
+    document.getElementById("valNow").textContent = eur(factureAn);
+    document.getElementById("valAfter").textContent = eur(apres);
+    document.getElementById("barAfter").style.width = Math.max(4, (apres / factureAn) * 100) + "%";
+  }
+
+  fact.addEventListener("input", calc);
+  [ve, ecs, bat].forEach(function(el){ el.addEventListener("change", calc); });
+  orient.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    Array.prototype.forEach.call(orient.querySelectorAll("button"), function(x){ x.setAttribute("aria-pressed","false"); });
+    b.setAttribute("aria-pressed","true");
+    kOrient = +b.dataset.k;
+    calc();
+  });
+  calc();
+
+  /* ---- révélations au défilement : timeline + compteurs ---- */
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        io.unobserve(el);
+        if (el.classList.contains("step")) {
+          setTimeout(function(){ el.setAttribute("data-lit","true"); },
+            Array.prototype.indexOf.call(el.parentNode.children, el) * 140);
+          return;
+        }
+        var target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0);
+        var suffix = el.querySelector("span") ? el.querySelector("span").outerHTML : "";
+        var t0 = performance.now(), dur = 1000;
+        (function tick(now){
+          var p = Math.min(1, (now - t0) / dur);
+          var v = target * (1 - Math.pow(1 - p, 3));
+          el.innerHTML = nb(dec ? +v.toFixed(dec) : Math.round(v), dec) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, {threshold:.4});
+    document.querySelectorAll(".step, .stat__n").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".step").forEach(function(el){ el.setAttribute("data-lit","true"); });
+  }
+
+  /* ---- formulaire (démonstration) ---- */
+  document.getElementById("leadform").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("sent").setAttribute("data-show","true");
+  });
+})();
+</script>
+
+</body>
+</html>
