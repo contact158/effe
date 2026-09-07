@@ -1,0 +1,1388 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="description" content="Catalogue produit Com’Wear — maquette de travail, non contractuelle.">
+<title>Catalogue Com'Wear 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap">
+<style>
+/* ═══════════ JETONS ═══════════ */
+:root{
+  /* palette de marque */
+  --encre:#15181F;
+  --toile:#F2F1EC;
+  --craie:#FFFFFF;
+  --indigo:#2A3A72;
+  --indigo-clair:#4B5FA6;
+  --ocre:#C98B24;
+  --ocre-sombre:#8A5B0E;
+  --vert:#2E6B4F;
+  --brique:#8E3524;
+
+  /* rôles — thème clair (par défaut) */
+  --fond:var(--toile);
+  --surface:var(--craie);
+  --surface-2:#E9E7DF;
+  --texte:var(--encre);
+  --texte-2:#5B6069;
+  --texte-3:#83888F;
+  --trait:#DBD8CE;
+  --trait-fort:#B6B2A5;
+  --accent:var(--indigo);
+  --accent-texte:var(--indigo);
+  --accent-encre:#FFFFFF;
+  --devis:var(--ocre);
+  --devis-texte:var(--ocre-sombre);
+  --devis-voile:rgba(201,139,36,.10);
+  --indigo-fond:#222E58;
+  --indigo-fond-texte:#EEEDE6;
+  --ok:var(--vert);
+  --alerte:var(--brique);
+  --ombre:0 1px 2px rgba(21,24,31,.05);
+  --ombre-flottant:0 18px 44px -14px rgba(21,24,31,.30);
+
+  /* mesures */
+  --large:1320px;
+  --marge:clamp(16px,3.6vw,44px);
+  --r-p:3px; --r-m:6px; --r-g:12px;
+
+  /* typo */
+  --f-titre:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-texte:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-code:"Spline Sans Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+
+  --t-xxs:.6875rem; --t-xs:.75rem; --t-s:.8125rem; --t-base:.9375rem;
+  --t-m:1.0625rem; --t-l:1.25rem; --t-xl:clamp(1.45rem,2.4vw,1.85rem);
+  --t-xxl:clamp(1.9rem,4vw,2.9rem);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --fond:#111319;
+    --surface:#181B22;
+    --surface-2:#20242D;
+    --texte:#ECEAE2;
+    --texte-2:#9CA2AE;
+    --texte-3:#7B818C;
+    --trait:#2A2F3A;
+    --trait-fort:#3D4451;
+    --accent:#9FB1EE;
+    --accent-texte:#A9B9F2;
+    --accent-encre:#111319;
+    --devis:#E0AC50;
+    --devis-texte:#E7B963;
+    --devis-voile:rgba(224,172,80,.12);
+    --indigo-fond:#1B2444;
+    --indigo-fond-texte:#E6E9F4;
+    --ok:#63B48C;
+    --alerte:#D97A63;
+    --ombre:0 1px 2px rgba(0,0,0,.35);
+    --ombre-flottant:0 18px 44px -14px rgba(0,0,0,.65);
+  }
+}
+:root[data-theme="dark"]{
+  --fond:#111319; --surface:#181B22; --surface-2:#20242D;
+  --texte:#ECEAE2; --texte-2:#9CA2AE; --texte-3:#7B818C;
+  --trait:#2A2F3A; --trait-fort:#3D4451;
+  --accent:#9FB1EE; --accent-texte:#A9B9F2; --accent-encre:#111319;
+  --devis:#E0AC50; --devis-texte:#E7B963; --devis-voile:rgba(224,172,80,.12);
+  --indigo-fond:#1B2444; --indigo-fond-texte:#E6E9F4;
+  --ok:#63B48C; --alerte:#D97A63;
+  --ombre:0 1px 2px rgba(0,0,0,.35);
+  --ombre-flottant:0 18px 44px -14px rgba(0,0,0,.65);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+body{
+  margin:0;background:var(--fond);color:var(--texte);
+  font-family:var(--f-texte);font-size:var(--t-base);line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit;text-decoration-color:var(--trait-fort);text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--devis);outline-offset:2px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--f-titre);font-weight:700;letter-spacing:-.021em;
+  line-height:1.08;text-wrap:balance;margin:0}
+p{margin:0}
+.enrobe{max-width:var(--large);margin:0 auto;padding-inline:var(--marge)}
+.code{font-family:var(--f-code);font-variant-numeric:tabular-nums}
+.nb{font-variant-numeric:tabular-nums}
+.invisible{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ═══════════ EN-TÊTE ═══════════ */
+.entete{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb,var(--fond) 88%,transparent);
+  backdrop-filter:saturate(150%) blur(12px);
+  border-bottom:1px solid var(--trait);
+}
+.entete__int{display:flex;align-items:center;gap:clamp(12px,2.5vw,32px);height:62px}
+.logo{display:flex;align-items:baseline;gap:9px;font-family:var(--f-titre);
+  font-weight:700;font-size:1.18rem;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}
+.logo b{font-weight:700;color:var(--texte)}
+.logo b::first-letter{color:var(--accent-texte)}
+.logo span{font-family:var(--f-code);font-size:var(--t-xxs);font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--texte-3)}
+.menu{display:flex;gap:22px;margin-left:auto;font-size:var(--t-s);font-weight:500}
+.menu a{text-decoration:none;color:var(--texte-2);white-space:nowrap}
+.menu a:hover{color:var(--texte)}
+@media (max-width:900px){.menu{display:none}}
+.entete__act{display:flex;align-items:center;gap:8px;margin-left:auto}
+@media (min-width:901px){.entete__act{margin-left:0}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border:1px solid var(--trait-fort);
+  background:var(--surface);border-radius:var(--r-m);padding:8px 14px;
+  font-size:var(--t-s);font-weight:600;cursor:pointer;white-space:nowrap;
+  transition:border-color .15s,background .15s,transform .1s;
+}
+.btn:hover{border-color:var(--texte-2)}
+.btn:active{transform:translateY(1px)}
+.btn--indigo{background:var(--indigo-fond);border-color:var(--indigo-fond);color:var(--indigo-fond-texte)}
+.btn--indigo:hover{border-color:var(--indigo-fond);filter:brightness(1.14)}
+.btn--devis{background:var(--devis);border-color:var(--devis);color:#1B1405}
+.btn--devis:hover{border-color:var(--devis);filter:brightness(1.06)}
+.btn--nu{background:transparent;border-color:transparent;color:var(--texte-2);padding:8px 10px}
+.btn--nu:hover{background:var(--surface-2);color:var(--texte)}
+.btn--pt{padding:5px 10px;font-size:var(--t-xs)}
+.pastille{
+  display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 5px;
+  border-radius:999px;background:#1B1405;color:var(--devis);
+  font-family:var(--f-code);font-size:var(--t-xxs);font-weight:600;
+}
+.btn--devis .pastille{background:rgba(27,20,5,.86);color:var(--devis)}
+
+/* ═══════════ BANDEAU DE TÊTE ═══════════ */
+.tete{background:var(--indigo-fond);color:var(--indigo-fond-texte);position:relative;overflow:hidden}
+.tete::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(255,255,255,.05) 3px 4px),
+             repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.05) 3px 4px);
+  mask-image:linear-gradient(115deg,transparent 45%,#000 100%);
+}
+.tete__int{padding-block:clamp(30px,5.5vw,56px);position:relative;z-index:1;
+  display:grid;gap:clamp(24px,4vw,52px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:960px){.tete__int{grid-template-columns:minmax(0,1.35fr) minmax(280px,.85fr);align-items:end}}
+.surtitre{
+  font-family:var(--f-code);font-size:var(--t-xs);font-weight:500;letter-spacing:.15em;
+  text-transform:uppercase;color:rgba(238,237,230,.62);margin:0 0 16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.surtitre::after{content:"";flex:1;min-width:24px;height:1px;background:rgba(238,237,230,.24)}
+.tete h1{font-size:var(--t-xxl);letter-spacing:-.032em;max-width:18ch}
+.tete__accroche{margin-top:16px;max-width:56ch;color:rgba(238,237,230,.78);font-size:var(--t-m);line-height:1.55}
+.chiffres{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;
+  background:rgba(238,237,230,.18);border:1px solid rgba(238,237,230,.18);border-radius:var(--r-m);overflow:hidden}
+.chiffre{background:var(--indigo-fond);padding:14px 16px}
+.chiffre dt{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.11em;
+  text-transform:uppercase;color:rgba(238,237,230,.58);margin-bottom:5px}
+.chiffre dd{margin:0;font-family:var(--f-titre);font-weight:700;font-size:1.32rem;letter-spacing:-.02em}
+.chiffre dd small{font-family:var(--f-texte);font-weight:500;font-size:var(--t-s);color:rgba(238,237,230,.7)}
+
+.avis{
+  display:flex;gap:12px;align-items:flex-start;
+  border-top:1px solid var(--trait);background:var(--devis-voile);
+  padding:11px var(--marge);font-size:var(--t-s);color:var(--texte-2);
+}
+.avis b{color:var(--devis-texte);font-weight:600}
+.avis__int{max-width:var(--large);margin:0 auto;width:100%;border-left:2px solid var(--devis);padding-left:12px}
+
+/* ═══════════ FILTRES ═══════════ */
+.filtres{position:sticky;top:62px;z-index:50;background:var(--fond);
+  border-bottom:1px solid var(--trait);padding-block:12px}
+.filtres__int{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.recherche{position:relative;flex:1 1 230px;min-width:200px;max-width:340px}
+.recherche input{
+  width:100%;border:1px solid var(--trait-fort);background:var(--surface);color:var(--texte);
+  border-radius:var(--r-m);padding:9px 12px 9px 34px;font:inherit;font-size:var(--t-s);
+}
+.recherche input::placeholder{color:var(--texte-3)}
+.recherche svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;stroke:var(--texte-3);fill:none;stroke-width:2}
+.jeu{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.jeu__lib{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.11em;
+  text-transform:uppercase;color:var(--texte-3);margin-right:2px}
+.puce{
+  border:1px solid var(--trait);background:var(--surface);border-radius:999px;
+  padding:6px 12px;font-size:var(--t-s);font-weight:500;cursor:pointer;
+  color:var(--texte-2);transition:.14s;
+}
+.puce:hover{border-color:var(--trait-fort);color:var(--texte)}
+.puce[aria-pressed="true"]{background:var(--indigo-fond);border-color:var(--indigo-fond);
+  color:var(--indigo-fond-texte);font-weight:600}
+.puce .code{font-size:var(--t-xxs);opacity:.62;margin-left:5px}
+.filtres__fin{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:var(--t-s);color:var(--texte-2)}
+.filtres select{border:1px solid var(--trait-fort);background:var(--surface);color:var(--texte);
+  border-radius:var(--r-m);padding:8px 10px;font:inherit;font-size:var(--t-s)}
+@media (max-width:760px){.filtres{top:62px}.filtres__fin{margin-left:0;width:100%}}
+
+/* ═══════════ FAMILLES + GRILLE ═══════════ */
+.famille{padding-top:clamp(34px,5vw,58px);scroll-margin-top:132px}
+.famille__tete{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  border-bottom:2px solid var(--texte);padding-bottom:10px;margin-bottom:20px}
+.famille__tete h2{font-size:var(--t-xl)}
+.famille__tete p{color:var(--texte-2);font-size:var(--t-s);max-width:52ch;flex:1 1 260px}
+.famille__cpt{font-family:var(--f-code);font-size:var(--t-xs);color:var(--texte-3);
+  letter-spacing:.06em;white-space:nowrap}
+.grille{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(248px,1fr))}
+
+.fiche{
+  position:relative;display:flex;flex-direction:column;text-align:left;
+  background:var(--surface);border:1px solid var(--trait);border-left:3px solid var(--trait);
+  border-radius:var(--r-m);overflow:hidden;cursor:pointer;
+  transition:border-color .15s,box-shadow .15s;box-shadow:var(--ombre);
+}
+.fiche:hover{border-color:var(--trait-fort);border-left-color:var(--accent);box-shadow:var(--ombre-flottant)}
+.fiche[data-choisi="1"]{border-left-color:var(--devis)}
+.fiche__haut{display:flex;align-items:center;gap:8px;padding:9px 12px;border-bottom:1px solid var(--trait)}
+.ref{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.06em;color:var(--texte-3);white-space:nowrap}
+.etiq{
+  margin-left:auto;font-family:var(--f-code);font-size:var(--t-xxs);font-weight:500;
+  letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:var(--r-p);
+  border:1px solid var(--trait);color:var(--texte-2);
+}
+.etiq--bio{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 42%,transparent)}
+.etiq--premium{color:var(--accent-texte);border-color:color-mix(in srgb,var(--accent) 42%,transparent)}
+.etiq--pro{color:var(--devis-texte);border-color:color-mix(in srgb,var(--devis) 46%,transparent)}
+.fiche__img{background:var(--surface-2);display:grid;place-items:center;padding:14px;position:relative}
+.fiche__img svg{width:100%;max-width:134px;height:auto;display:block}
+.fiche__choisi{
+  position:absolute;top:8px;right:8px;background:var(--devis);color:#1B1405;
+  font-family:var(--f-code);font-size:var(--t-xxs);font-weight:600;
+  padding:2px 7px;border-radius:var(--r-p);display:none;
+}
+.fiche[data-choisi="1"] .fiche__choisi{display:block}
+.fiche__corps{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.fiche__marque{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--texte-3)}
+.fiche h3{font-size:var(--t-m);letter-spacing:-.018em}
+.compo{font-family:var(--f-code);font-size:var(--t-xxs);line-height:1.5;color:var(--texte-2)}
+.nuancier{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.pastille-col{
+  width:16px;height:16px;border-radius:50%;padding:0;border:0;cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(21,24,31,.24);transition:transform .12s;
+}
+.pastille-col:hover{transform:scale(1.18)}
+.pastille-col[aria-pressed="true"]{box-shadow:inset 0 0 0 1px rgba(21,24,31,.3),0 0 0 2px var(--surface),0 0 0 3.5px var(--texte)}
+.nuancier__reste{font-family:var(--f-code);font-size:var(--t-xxs);color:var(--texte-3);margin-left:2px}
+.tailles{display:flex;gap:3px;flex-wrap:wrap}
+.taille{font-family:var(--f-code);font-size:var(--t-xxs);border:1px solid var(--trait);
+  border-radius:var(--r-p);padding:1px 5px;color:var(--texte-2)}
+.fiche__bas{margin-top:auto;padding:10px 12px;border-top:1px solid var(--trait);
+  display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.prix{font-family:var(--f-titre);font-weight:700;font-size:1.16rem;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+.prix__lib{font-family:var(--f-code);font-size:var(--t-xxs);color:var(--texte-3);letter-spacing:.05em}
+.fiche__voir{margin-left:auto;font-size:var(--t-xs);font-weight:600;color:var(--accent-texte)}
+.vide{padding:56px 0;text-align:center;color:var(--texte-2)}
+.vide b{display:block;font-family:var(--f-titre);font-size:var(--t-l);color:var(--texte);margin-bottom:6px}
+
+/* ═══════════ SECTIONS DE CONTENU ═══════════ */
+.bloc{padding-block:clamp(46px,7vw,84px);scroll-margin-top:120px}
+.bloc--creux{background:var(--surface);border-block:1px solid var(--trait)}
+.bloc__tete{max-width:62ch;margin-bottom:clamp(22px,3vw,34px)}
+.bloc__tete h2{font-size:var(--t-xl);margin-bottom:10px}
+.bloc__tete p{color:var(--texte-2)}
+.defile{overflow-x:auto;border:1px solid var(--trait);border-radius:var(--r-m);background:var(--fond)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:var(--t-s)}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--trait);vertical-align:top}
+thead th{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--texte-3);font-weight:500;background:var(--surface-2);position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+td b{font-family:var(--f-titre);font-weight:600}
+td .code{color:var(--texte-2)}
+.techniques{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+.technique{border:1px solid var(--trait);border-top:3px solid var(--accent);border-radius:var(--r-m);
+  padding:18px;background:var(--fond);display:flex;flex-direction:column;gap:10px}
+.technique h3{font-size:var(--t-m)}
+.technique p{font-size:var(--t-s);color:var(--texte-2)}
+.technique dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;
+  font-family:var(--f-code);font-size:var(--t-xxs);align-items:baseline}
+.technique dt{color:var(--texte-3);letter-spacing:.07em;text-transform:uppercase}
+.technique dd{margin:0;color:var(--texte)}
+.zones{display:grid;gap:clamp(20px,4vw,44px);grid-template-columns:minmax(0,1fr)}
+@media (min-width:840px){.zones{grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);align-items:start}}
+.schema{background:var(--fond);border:1px solid var(--trait);border-radius:var(--r-m);padding:18px}
+.schema svg{width:100%;height:auto;display:block}
+.zones__liste{display:grid;gap:1px;background:var(--trait);border:1px solid var(--trait);border-radius:var(--r-m);overflow:hidden}
+.zone{background:var(--fond);padding:12px 15px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.zone__num{font-family:var(--f-code);font-size:var(--t-xxs);color:var(--accent-texte);font-weight:600;
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:var(--r-p);padding:1px 6px}
+.zone b{font-family:var(--f-titre);font-weight:600}
+.zone span{font-family:var(--f-code);font-size:var(--t-xs);color:var(--texte-2);margin-left:auto}
+.notes{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:22px}
+.note{border-left:2px solid var(--trait-fort);padding-left:14px}
+.note h3{font-size:var(--t-base);margin-bottom:5px}
+.note p{font-size:var(--t-s);color:var(--texte-2)}
+
+/* ═══════════ TIROIRS ═══════════ */
+.voile{position:fixed;inset:0;background:rgba(21,24,31,.45);backdrop-filter:blur(2px);
+  z-index:90;opacity:0;pointer-events:none;transition:opacity .22s}
+.voile[data-ouvert="1"]{opacity:1;pointer-events:auto}
+.tiroir{
+  position:fixed;top:0;right:0;bottom:0;width:min(520px,100vw);z-index:100;
+  background:var(--fond);border-left:1px solid var(--trait);box-shadow:var(--ombre-flottant);
+  transform:translateX(101%);transition:transform .26s cubic-bezier(.32,.72,0,1);
+  display:flex;flex-direction:column;
+}
+.tiroir[data-ouvert="1"]{transform:none}
+.tiroir__tete{display:flex;align-items:center;gap:12px;padding:14px 18px;
+  border-bottom:1px solid var(--trait);background:var(--surface)}
+.tiroir__tete h2{font-size:var(--t-m);flex:1;min-width:0}
+.tiroir__corps{overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:20px;flex:1}
+.tiroir__pied{border-top:1px solid var(--trait);background:var(--surface);padding:14px 18px;
+  display:flex;flex-direction:column;gap:12px}
+.fermer{border:1px solid var(--trait);background:var(--fond);border-radius:var(--r-m);
+  width:32px;height:32px;display:grid;place-items:center;cursor:pointer;flex:none}
+.fermer svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+
+.detail__img{background:var(--surface-2);border-radius:var(--r-m);padding:20px;display:grid;place-items:center}
+.detail__img svg{width:min(186px,56%);height:auto}
+.detail__titre{display:flex;flex-direction:column;gap:5px}
+.detail__titre h3{font-size:var(--t-l)}
+.sous{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--texte-3)}
+.bloc-lib{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--texte-3);margin-bottom:9px;
+  display:flex;align-items:center;gap:10px}
+.bloc-lib::after{content:"";flex:1;height:1px;background:var(--trait)}
+.carac{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:var(--t-s);margin:0}
+.carac dt{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.07em;
+  text-transform:uppercase;color:var(--texte-3);padding-top:2px}
+.carac dd{margin:0}
+.nuancier--large{gap:8px}
+.nuancier--large .pastille-col{width:26px;height:26px;border-radius:var(--r-p)}
+.col-nom{font-family:var(--f-code);font-size:var(--t-xs);color:var(--texte-2);margin-top:8px}
+.tailles--large .taille{font-size:var(--t-xs);padding:3px 8px}
+.champ{display:flex;flex-direction:column;gap:5px;flex:1 1 130px}
+.champ label{font-family:var(--f-code);font-size:var(--t-xxs);letter-spacing:.09em;
+  text-transform:uppercase;color:var(--texte-3)}
+.champ select,.champ input{border:1px solid var(--trait-fort);background:var(--surface);
+  color:var(--texte);border-radius:var(--r-m);padding:9px 10px;font:inherit;font-size:var(--t-s);width:100%}
+.ligne-champs{display:flex;gap:10px;flex-wrap:wrap}
+.recap{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  font-family:var(--f-code);font-size:var(--t-xs);color:var(--texte-2);margin:0}
+.recap>span:first-child{flex:1;min-width:0;line-height:1.45}
+.recap b{font-family:var(--f-titre);font-size:1.2rem;color:var(--devis-texte);
+  font-variant-numeric:tabular-nums;white-space:nowrap;flex:none}
+
+.paliers{width:100%;min-width:0;font-size:var(--t-xs)}
+.paliers th,.paliers td{padding:7px 9px}
+.paliers td:not(:first-child),.paliers th:not(:first-child){text-align:right;font-family:var(--f-code)}
+.paliers tr[data-actif="1"]{background:var(--devis-voile)}
+.paliers tr[data-actif="1"] td{color:var(--devis-texte);font-weight:600}
+
+.lignes{display:flex;flex-direction:column;gap:10px}
+.ligne{border:1px solid var(--trait);border-radius:var(--r-m);background:var(--surface);padding:12px;
+  display:grid;gap:8px}
+.ligne__haut{display:flex;gap:10px;align-items:flex-start}
+.ligne__pt{width:26px;height:26px;border-radius:var(--r-p);flex:none;
+  box-shadow:inset 0 0 0 1px rgba(21,24,31,.24)}
+.ligne__nom{flex:1;min-width:0}
+.ligne__nom b{font-family:var(--f-titre);font-size:var(--t-base);display:block}
+.ligne__nom span{font-family:var(--f-code);font-size:var(--t-xxs);color:var(--texte-3)}
+.ligne__det{display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  font-family:var(--f-code);font-size:var(--t-xs);color:var(--texte-2)}
+.ligne__det .qte{border:1px solid var(--trait-fort);border-radius:var(--r-m);
+  padding:4px 6px;width:66px;background:var(--fond);color:var(--texte);font:inherit;font-size:var(--t-xs)}
+.ligne__tot{margin-left:auto;font-family:var(--f-titre);font-weight:700;font-size:var(--t-m);
+  font-variant-numeric:tabular-nums}
+.suppr{border:0;background:none;color:var(--texte-3);cursor:pointer;padding:2px 4px;font-size:var(--t-xs)}
+.suppr:hover{color:var(--alerte);text-decoration:underline}
+.totaux{display:grid;gap:6px;font-size:var(--t-s)}
+.totaux div{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.totaux .fort{border-top:1px solid var(--trait);padding-top:8px;margin-top:2px;
+  font-family:var(--f-titre);font-weight:700;font-size:var(--t-l);color:var(--devis-texte)}
+.totaux .code{color:var(--texte-2)}
+
+/* ═══════════ PIED ═══════════ */
+.pied{background:var(--indigo-fond);color:var(--indigo-fond-texte);padding-block:clamp(34px,5vw,54px);margin-top:clamp(46px,7vw,80px)}
+.pied__int{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.pied h3{font-family:var(--f-code);font-size:var(--t-xxs);font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(238,237,230,.55);margin-bottom:10px}
+.pied p,.pied li{font-size:var(--t-s);color:rgba(238,237,230,.8)}
+.pied ul{margin:0;padding:0;list-style:none;display:grid;gap:5px}
+.pied__bas{border-top:1px solid rgba(238,237,230,.18);margin-top:28px;padding-top:16px;
+  font-family:var(--f-code);font-size:var(--t-xxs);color:rgba(238,237,230,.55);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+
+/* ═══════════ IMPRESSION ═══════════ */
+@media print{
+  :root{--fond:#fff;--surface:#fff;--surface-2:#f4f4f0;--texte:#111;--texte-2:#444;
+    --texte-3:#666;--trait:#ccc;--trait-fort:#999;--ombre:none;--ombre-flottant:none;
+    --indigo-fond:#fff;--indigo-fond-texte:#111}
+  .entete,.filtres,.voile,.tiroir,.avis,.bloc--nonimp,.fiche__voir,.pied__bas{display:none!important}
+  body{background:#fff}
+  .tete{border-bottom:2px solid #111}
+  .tete::after{display:none}
+  .grille{grid-template-columns:repeat(3,1fr);gap:8px}
+  .fiche{break-inside:avoid;box-shadow:none;border-left-width:1px}
+  .famille{break-before:auto;padding-top:22px}
+  .bloc{padding-block:22px}
+  a[href^="http"]::after{content:""}
+}
+body[data-impression="devis"] .tete,
+body[data-impression="devis"] .catalogue,
+body[data-impression="devis"] .bloc,
+body[data-impression="devis"] .pied{display:none}
+@media print{
+  body[data-impression="devis"] .voile{display:none!important}
+  body[data-impression="devis"] .tiroir{display:flex!important;position:static;width:100%;
+    transform:none;border:0;box-shadow:none;height:auto}
+  body[data-impression="devis"] #tiroir-produit{display:none!important}
+  body[data-impression="devis"] .tiroir__corps{overflow:visible}
+}
+</style>
+</head>
+<body>
+<header class="entete">
+  <div class="enrobe entete__int">
+    <a class="logo" href="#haut"><b>Com&rsquo;Wear</b><span>Catalogue&nbsp;2026</span></a>
+    <nav class="menu" aria-label="Sections du catalogue">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#techniques">Techniques de marquage</a>
+      <a href="#zones">Zones &amp; tarifs</a>
+      <a href="#conditions">Conditions</a>
+    </nav>
+    <div class="entete__act">
+      <button class="btn btn--nu" id="bascule-theme" type="button" aria-label="Changer de th&egrave;me">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path></svg>
+      </button>
+      <button class="btn btn--devis" id="ouvrir-devis" type="button">
+        Mon devis <span class="pastille" id="cpt-devis">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="tete" id="haut">
+  <div class="enrobe tete__int">
+    <div>
+      <p class="surtitre">Textile personnalisable &middot; Vend&eacute;e</p>
+      <h1>Le catalogue, technique de marquage comprise.</h1>
+      <p class="tete__accroche">
+        Chaque r&eacute;f&eacute;rence est donn&eacute;e avec sa composition, son grammage, ses coloris,
+        son tarif d&eacute;gressif et les techniques de marquage qu&rsquo;elle accepte. S&eacute;lectionnez,
+        indiquez vos quantit&eacute;s&nbsp;: le devis se chiffre au fur et &agrave; mesure, textile et
+        marquage compris.
+      </p>
+    </div>
+    <dl class="chiffres">
+      <div class="chiffre"><dt>R&eacute;f&eacute;rences</dt><dd class="nb" id="chiffre-refs">32</dd></div>
+      <div class="chiffre"><dt>Techniques</dt><dd>4 <small>ateliers int&eacute;gr&eacute;s</small></dd></div>
+      <div class="chiffre"><dt>&Agrave; partir de</dt><dd>1 <small>pi&egrave;ce (flocage, DTF)</small></dd></div>
+      <div class="chiffre"><dt>D&eacute;lai atelier</dt><dd>48 h <small>&agrave; 8 j selon technique</small></dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="avis">
+  <div class="avis__int">
+    <p><b>Document de travail.</b> Les r&eacute;f&eacute;rences sont celles du march&eacute; du textile
+    promotionnel&nbsp;; les <b>prix, paliers et d&eacute;lais sont des ordres de grandeur &agrave; caler</b>
+    sur les tarifs fournisseurs et la marge Com&rsquo;Wear avant toute diffusion. Coordonn&eacute;es et
+    identit&eacute; visuelle&nbsp;: proposition &agrave; valider.</p>
+  </div>
+</div>
+
+<main class="catalogue" id="catalogue">
+  <div class="filtres">
+    <div class="enrobe filtres__int">
+      <div class="recherche">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" id="recherche" placeholder="R&eacute;f&eacute;rence, marque, mati&egrave;re&hellip;" aria-label="Rechercher dans le catalogue">
+      </div>
+      <div class="jeu" id="jeu-familles" role="group" aria-label="Filtrer par famille">
+        <span class="jeu__lib">Famille</span>
+      </div>
+      <div class="jeu" id="jeu-techniques" role="group" aria-label="Filtrer par technique compatible">
+        <span class="jeu__lib">Marquage</span>
+      </div>
+      <div class="filtres__fin">
+        <label for="tri" class="jeu__lib" style="margin:0">Tri</label>
+        <select id="tri">
+          <option value="famille">Par famille</option>
+          <option value="prix-asc">Prix croissant</option>
+          <option value="prix-desc">Prix d&eacute;croissant</option>
+          <option value="grammage">Grammage d&eacute;croissant</option>
+        </select>
+        <button class="btn btn--pt" type="button" id="reinit">Tout afficher</button>
+      </div>
+    </div>
+  </div>
+  <div class="enrobe" id="familles"></div>
+</main>
+
+<section class="bloc bloc--creux" id="techniques">
+  <div class="enrobe">
+    <div class="bloc__tete">
+      <p class="surtitre" style="color:var(--texte-3)">Atelier</p>
+      <h2>Quatre techniques, quatre usages</h2>
+      <p>Le choix ne se fait pas au go&ucirc;t&nbsp;: il d&eacute;coule de la quantit&eacute;, du nombre de
+      couleurs du visuel et de la mati&egrave;re du support. Voici la r&egrave;gle appliqu&eacute;e &agrave; l&rsquo;atelier.</p>
+    </div>
+    <div class="techniques" id="liste-techniques"></div>
+    <div class="defile" style="margin-top:20px">
+      <table>
+        <caption class="invisible">Comparatif des techniques de marquage</caption>
+        <thead>
+          <tr><th scope="col">Technique</th><th scope="col">Rendu</th><th scope="col">D&egrave;s</th>
+          <th scope="col">Couleurs</th><th scope="col">Tenue au lavage</th><th scope="col">Supports</th><th scope="col">D&eacute;lai</th></tr>
+        </thead>
+        <tbody id="tbody-techniques"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="bloc" id="zones">
+  <div class="enrobe">
+    <div class="bloc__tete">
+      <p class="surtitre" style="color:var(--texte-3)">Emplacements</p>
+      <h2>O&ugrave; marquer, et &agrave; quel prix</h2>
+      <p>Les dimensions ci-dessous sont les formats standard de l&rsquo;atelier. Au-del&agrave;, le marquage
+      passe en grand format&nbsp;: nous chiffrons au cas par cas.</p>
+    </div>
+    <div class="zones">
+      <div class="schema" id="schema-zones"></div>
+      <div>
+        <p class="bloc-lib">Formats standard</p>
+        <div class="zones__liste" id="liste-zones"></div>
+        <p class="bloc-lib" style="margin-top:26px">Tarif marquage par pi&egrave;ce &mdash; HT</p>
+        <div class="defile">
+          <table style="min-width:520px">
+            <caption class="invisible">Tarif du marquage par technique et par palier de quantit&eacute;</caption>
+            <thead><tr><th scope="col">Technique</th><th scope="col">1&ndash;9</th><th scope="col">10&ndash;24</th>
+            <th scope="col">25&ndash;49</th><th scope="col">50&ndash;99</th><th scope="col">100&nbsp;+</th><th scope="col">Frais fixes</th></tr></thead>
+            <tbody id="tbody-marquage"></tbody>
+          </table>
+        </div>
+        <p class="compo" style="margin-top:10px">Un marquage &laquo;&nbsp;pi&egrave;ce&nbsp;&raquo; = un emplacement,
+        format standard. Chaque emplacement suppl&eacute;mentaire se cumule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloc bloc--creux" id="conditions">
+  <div class="enrobe">
+    <div class="bloc__tete">
+      <p class="surtitre" style="color:var(--texte-3)">Commande</p>
+      <h2>Comment &ccedil;a se passe</h2>
+    </div>
+    <div class="defile" style="max-width:900px">
+      <table style="min-width:600px">
+        <caption class="invisible">&Eacute;tapes de la commande</caption>
+        <thead><tr><th scope="col">&Eacute;tape</th><th scope="col">Ce que vous fournissez</th><th scope="col">D&eacute;lai indicatif</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Devis</b></td><td>La s&eacute;lection de ce catalogue, vos quantit&eacute;s et vos tailles</td><td class="code">sous 24 h ouvr&eacute;es</td></tr>
+          <tr><td><b>2. Fichier</b></td><td>Logo vectoriel (AI, EPS, PDF, SVG) ou image 300 dpi pour le DTF</td><td class="code">&mdash;</td></tr>
+          <tr><td><b>3. BAT</b></td><td>Votre validation du visuel positionn&eacute; et dimensionn&eacute;</td><td class="code">48 h apr&egrave;s fichier</td></tr>
+          <tr><td><b>4. Production</b></td><td>&mdash;</td><td class="code">2 &agrave; 8 j selon technique</td></tr>
+          <tr><td><b>5. Livraison</b></td><td>Adresse de livraison, ou retrait &agrave; l&rsquo;atelier</td><td class="code">24 &agrave; 48 h</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="notes">
+      <div class="note"><h3>Vos propres textiles</h3><p>Le marquage sur v&ecirc;tements fournis par le client est
+      accept&eacute; apr&egrave;s test de compatibilit&eacute; sur une pi&egrave;ce. Le r&eacute;sultat n&rsquo;est
+      garanti que sur les mati&egrave;res valid&eacute;es &agrave; ce test.</p></div>
+      <div class="note"><h3>Tailles et coupes</h3><p>Sauf mention contraire, les mod&egrave;les existent en coupe
+      unisexe&nbsp;; les coupes femme et enfant sont disponibles sur la majorit&eacute; des r&eacute;f&eacute;rences,
+      au m&ecirc;me tarif. Le r&eacute;assort en cours d&rsquo;ann&eacute;e d&eacute;pend du stock fournisseur.</p></div>
+      <div class="note"><h3>Entretien</h3><p>Lavage sur l&rsquo;envers &agrave; 30&nbsp;&deg;C, sans
+      assouplissant, s&egrave;che-linge d&eacute;conseill&eacute; sur flocage et DTF. Repassage &agrave; l&rsquo;envers,
+      jamais directement sur le marquage.</p></div>
+      <div class="note"><h3>Quantit&eacute;s minimales</h3><p>Flocage et DTF&nbsp;: d&egrave;s 1 pi&egrave;ce.
+      Broderie&nbsp;: 5 pi&egrave;ces (num&eacute;risation factur&eacute;e une fois, conserv&eacute;e pour vos
+      r&eacute;assorts). S&eacute;rigraphie&nbsp;: 30 pi&egrave;ces par visuel et par couleur.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="pied">
+  <div class="enrobe pied__int">
+    <div>
+      <h3>Com&rsquo;Wear</h3>
+      <p>Personnalisation textile pour entreprises, clubs, associations et collectivit&eacute;s.
+      Atelier int&eacute;gr&eacute; en Vend&eacute;e&nbsp;: flocage, DTF, broderie, s&eacute;rigraphie.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>Atelier &mdash; <span class="code">adresse &agrave; compl&eacute;ter</span></li>
+        <li>T&eacute;l. &mdash; <span class="code">00 00 00 00 00</span></li>
+        <li>Courriel &mdash; <span class="code">contact@com-wear.fr</span></li>
+        <li>Configurateur &mdash; com-wear.fr</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Le catalogue</h3>
+      <ul>
+        <li><a href="#catalogue">Toutes les familles</a></li>
+        <li><a href="#techniques">Techniques de marquage</a></li>
+        <li><a href="#zones">Zones et tarifs</a></li>
+        <li><button class="btn btn--pt" type="button" id="imprimer-catalogue" style="margin-top:4px">Imprimer le catalogue</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="enrobe pied__bas">
+    <span>Catalogue 2026 &mdash; maquette de travail, non contractuelle</span>
+    <span>Prix HT, hors marquage sauf mention contraire &middot; TVA 20 %</span>
+  </div>
+</footer>
+
+<div class="voile" id="voile"></div>
+
+<aside class="tiroir" id="tiroir-produit" aria-hidden="true" aria-labelledby="titre-produit" role="dialog">
+  <div class="tiroir__tete">
+    <h2 id="titre-produit">Fiche produit</h2>
+    <button class="fermer" type="button" data-fermer aria-label="Fermer la fiche">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+    </button>
+  </div>
+  <div class="tiroir__corps" id="corps-produit"></div>
+  <div class="tiroir__pied" id="pied-produit"></div>
+</aside>
+
+<aside class="tiroir" id="tiroir-devis" aria-hidden="true" aria-labelledby="titre-devis" role="dialog">
+  <div class="tiroir__tete">
+    <h2 id="titre-devis">Mon devis</h2>
+    <button class="btn btn--pt" type="button" id="vider-devis">Vider</button>
+    <button class="fermer" type="button" data-fermer aria-label="Fermer le devis">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+    </button>
+  </div>
+  <div class="tiroir__corps" id="corps-devis"></div>
+  <div class="tiroir__pied" id="pied-devis"></div>
+</aside>
+
+<script>
+(function(){
+"use strict";
+
+/* ───────── Nuancier ───────── */
+var NUANCES={
+  blanc:["Blanc","#FFFFFF"], creme:["Crème","#F0E7D6"], naturel:["Écru","#E4DAC4"],
+  sable:["Sable","#D6C3A1"], gris:["Gris chiné","#A8A69E"], grisfonce:["Gris foncé","#63666B"],
+  anthracite:["Anthracite","#33373C"], noir:["Noir","#141414"], marine:["Marine","#1C2A48"],
+  royal:["Bleu royal","#1F4FA8"], ciel:["Bleu ciel","#82B4E4"], canard:["Bleu canard","#1D5B63"],
+  vert:["Vert bouteille","#2C6349"], kaki:["Kaki","#5B5E3F"], pomme:["Vert pomme","#8FBF3F"],
+  rouge:["Rouge","#C0242A"], bordeaux:["Bordeaux","#6D2029"], orange:["Orange","#E2701C"],
+  jaune:["Jaune tournesol","#EFC13B"], ocre:["Ocre","#C98B24"], rose:["Rose poudré","#E2A2B4"],
+  violet:["Violet","#5A3D8C"], jaunehv:["Jaune haute visibilité","#E2ED4B"],
+  orangehv:["Orange haute visibilité","#FF6A13"]
+};
+
+/* ───────── Silhouettes ───────── */
+var FORMES={
+ tshirt:'<path d="M38,12 L52,7 C55.5,14.5 64.5,14.5 68,7 L82,12 L108,32 L94,50 L86,42 L86,118 L34,118 L34,42 L26,50 L12,32 Z"/>'+
+   '<path d="M52,7 C55.5,14.5 64.5,14.5 68,7 M34,111 H86" fill="none"/>',
+ tshirtML:'<path d="M38,12 L52,7 C55.5,14.5 64.5,14.5 68,7 L82,12 L106,30 L116,84 L98,89 L86,48 L86,118 L34,118 L34,48 L22,89 L4,84 L14,30 Z"/>'+
+   '<path d="M52,7 C55.5,14.5 64.5,14.5 68,7 M34,111 H86 M98,89 L116,84 M4,84 L22,89" fill="none"/>',
+ polo:'<path d="M38,12 L52,7 C55.5,14.5 64.5,14.5 68,7 L82,12 L108,32 L94,50 L86,42 L86,118 L34,118 L34,42 L26,50 L12,32 Z"/>'+
+   '<path d="M52,7 L45,21 L60,31 L75,21 L68,7 M60,31 V56 M34,111 H86" fill="none"/>'+
+   '<circle cx="60" cy="37" r="1.8" fill="none"/><circle cx="60" cy="47" r="1.8" fill="none"/>',
+ sweat:'<path d="M38,13 L52,8 C55.5,15.5 64.5,15.5 68,8 L82,13 L106,31 L116,83 L98,89 L88,48 L88,110 L32,110 L32,48 L22,89 L4,83 L14,31 Z"/>'+
+   '<path d="M32,110 H88 V122 H32 Z M52,8 C55.5,15.5 64.5,15.5 68,8 M98,89 L116,83 M4,83 L22,89" fill="none"/>',
+ hoodie:'<path d="M38,15 L52,10 L68,10 L82,15 L106,33 L116,85 L98,91 L88,50 L88,110 L32,110 L32,50 L22,91 L4,85 L14,33 Z"/>'+
+   '<path d="M42,18 C44,-2 76,-2 78,18 L70,28 C64,22 56,22 50,28 Z" fill="none"/>'+
+   '<path d="M53,27 V44 M67,27 V44 M40,80 H80 L76,100 H44 Z M32,110 H88 V122 H32 Z" fill="none"/>',
+ zip:'<path d="M38,15 L52,10 L68,10 L82,15 L106,33 L116,85 L98,91 L88,50 L88,110 L32,110 L32,50 L22,91 L4,85 L14,33 Z"/>'+
+   '<path d="M50,12 L60,21 L70,12 M60,21 V122 M32,110 H88 V122 H32 Z" fill="none"/>'+
+   '<rect x="57" y="34" width="6" height="9" rx="1.5" fill="none"/>',
+ parka:'<path d="M36,20 L52,13 L68,13 L84,20 L108,38 L116,90 L98,96 L88,56 L88,130 L32,130 L32,56 L22,96 L4,90 L12,38 Z"/>'+
+   '<path d="M44,22 C46,1 74,1 76,22 L69,31 C64,26 56,26 51,31 Z" fill="none"/>'+
+   '<path d="M60,31 V130 M38,86 H56 V106 H38 Z M64,86 H82 V106 H64 Z" fill="none"/>',
+ bodywarmer:'<path d="M38,14 L52,9 C55.5,16.5 64.5,16.5 68,9 L82,14 C76,26 78,40 88,52 L88,122 L32,122 L32,52 C42,40 44,26 38,14 Z"/>'+
+   '<path d="M60,18 V122 M34,66 H86 M34,84 H86 M34,102 H86" fill="none"/>'+
+   '<rect x="57" y="28" width="6" height="9" rx="1.5" fill="none"/>',
+ gilet:'<path d="M38,14 L52,9 C55.5,16.5 64.5,16.5 68,9 L82,14 C76,26 78,40 88,52 L88,118 L32,118 L32,52 C42,40 44,26 38,14 Z"/>'+
+   '<rect x="32" y="62" width="56" height="10" fill="#DAD9D2" stroke="none"/>'+
+   '<rect x="32" y="90" width="56" height="10" fill="#DAD9D2" stroke="none"/>'+
+   '<path d="M60,18 V118 M32,62 H88 M32,72 H88 M32,90 H88 M32,100 H88" fill="none"/>',
+ pantalon:'<path d="M32,10 L88,10 L94,58 L88,130 L64,130 L60,74 L56,130 L32,130 L26,58 Z"/>'+
+   '<path d="M32,10 H88 V22 H32 Z M36,22 C45,31 48,33 51,24 M84,22 C75,31 72,33 69,24 M60,74 V22" fill="none"/>',
+ short:'<path d="M28,16 L92,16 L96,54 L88,88 L64,88 L60,58 L56,88 L32,88 L24,54 Z"/>'+
+   '<path d="M28,16 H92 V28 H28 Z M60,58 V28" fill="none"/>',
+ tablier:'<path d="M46,14 H74 V32 L92,44 V126 H28 V44 L46,32 Z"/>'+
+   '<path d="M48,14 C52,1 68,1 72,14 M28,58 H12 M92,58 H108 M43,76 H77 V100 H43 Z M60,76 V100" fill="none"/>',
+ casquette:'<path d="M28,80 C28,34 92,34 92,80 Z"/>'+
+   '<path d="M20,80 H100 C100,95 82,104 60,104 C38,104 20,95 20,80 Z"/>'+
+   '<path d="M60,36 V80 M44,41 C51,55 50,68 48,80 M76,41 C69,55 70,68 72,80 M20,80 H100" fill="none"/>'+
+   '<circle cx="60" cy="37" r="2.6" fill="none"/>',
+ bonnet:'<path d="M30,90 C30,28 90,28 90,90 Z"/><path d="M27,88 H93 V116 H27 Z"/>'+
+   '<path d="M38,88 V116 M49,88 V116 M60,88 V116 M71,88 V116 M82,88 V116" fill="none"/>',
+ tote:'<path d="M28,42 H92 V124 H28 Z"/>'+
+   '<path d="M43,42 C43,20 77,20 77,42 M28,53 H92" fill="none"/>',
+ sacados:'<path d="M30,44 C30,28 44,18 60,18 C76,18 90,28 90,44 V118 C90,123 87,126 82,126 H38 C33,126 30,123 30,118 Z"/>'+
+   '<path d="M32,66 H88 M41,84 H79 V114 H41 Z M45,27 C38,48 38,68 42,84 M75,27 C82,48 82,68 78,84" fill="none"/>',
+ serviette:'<path d="M20,34 H100 V114 H20 Z"/>'+
+   '<path d="M20,49 H100 M20,57 H100 M20,94 H100 M20,102 H100" fill="none"/>'
+};
+
+/* ───────── Familles ───────── */
+var FAMILLES=[
+ {id:"tshirt",nom:"T-shirts",desc:"Jersey coton, du 150 g/m² pour l’événementiel au coton peigné 190 g/m² pour le port quotidien."},
+ {id:"polo",nom:"Polos",desc:"Piqué et maille, la pièce de représentation : accueil, commerce, salon."},
+ {id:"sweat",nom:"Sweats et capuches",desc:"Molleton gratté 280 à 350 g/m², col rond, capuche ou zippé."},
+ {id:"veste",nom:"Vestes et softshells",desc:"Coupe-vent, softshell membrané et parkas pour le travail en extérieur."},
+ {id:"pro",nom:"Vêtements de travail et haute visibilité",desc:"Sergé polycoton, poches métier et pièces certifiées EN ISO 20471."},
+ {id:"sport",nom:"Sport et club",desc:"Mailles respirantes et coupe-vent pour les clubs et les événements sportifs."},
+ {id:"acc",nom:"Accessoires",desc:"Casquettes, bonnets, sacs et linge : le complément de gamme à faible coût d’entrée."}
+];
+var GAMMES={essentiel:"Essentiel",confort:"Confort",premium:"Premium",bio:"Bio",pro:"Pro"};
+
+/* ───────── Techniques ───────── */
+var PALIERS=[1,10,25,50,100];
+var PALIERS_LIB=["1–9","10–24","25–49","50–99","100 +"];
+var COEF=[1,.92,.86,.81,.76];
+var TECHNIQUES=[
+ {id:"flocage",nom:"Flocage",resume:"Vinyle thermocollé découpé puis pressé à chaud. Toucher velours mat, couleur parfaitement opaque, même sur textile foncé.",
+  rendu:"Velours mat, opaque",des:"1 pièce",couleurs:"1 à 3 aplats",tenue:"≈ 50 lavages à 30 °C",
+  supports:"Coton, polyester, mélange",delai:"48 h",usage:"Textes, numéros, logos simples",
+  prix:[6.50,4.20,3.30,2.70,2.20],fixe:0,fixeLib:"aucun",min:1},
+ {id:"dtf",nom:"DTF",resume:"Impression quadri sur film, transférée à la presse. Restitue les dégradés, les photos et les logos multicolores sans surcoût par couleur.",
+  rendu:"Quadri, détail fin",des:"1 pièce",couleurs:"Illimitées, dégradés",tenue:"≈ 50 lavages à 30 °C",
+  supports:"Tous textiles, y compris techniques",delai:"48 h",usage:"Visuels complexes, photos",
+  prix:[8.00,5.20,3.90,3.10,2.50],fixe:0,fixeLib:"aucun",min:1},
+ {id:"broderie",nom:"Broderie",resume:"Fil posé point par point sur machine multitêtes. Le rendu en relief le plus durable, et le seul qui tient sur un softshell ou une casquette.",
+  rendu:"Fil en relief",des:"5 pièces",couleurs:"Jusqu’à 12 fils",tenue:"Durée de vie du vêtement",
+  supports:"Piqué, molleton, softshell, casquette",delai:"5 à 8 j",usage:"Logos jusqu’à 12 cm",
+  prix:[9.50,6.50,5.20,4.40,3.80],fixe:35,fixeLib:"numérisation 35 €, une seule fois",min:5},
+ {id:"serigraphie",nom:"Sérigraphie",resume:"Encre poussée à travers un écran, une couleur à la fois. Le coût à la pièce le plus bas dès que la série est longue.",
+  rendu:"Encre à plat, souple",des:"30 pièces",couleurs:"1 à 6 (un écran par couleur)",tenue:"Excellente",
+  supports:"Coton et mélanges coton",delai:"8 à 10 j",usage:"Grandes séries, événements",
+  prix:[null,null,2.60,1.90,1.30],fixe:25,fixeLib:"écran 25 € par couleur",min:30}
+];
+
+/* ───────── Zones de marquage ───────── */
+var ZONES=[
+ {n:1,nom:"Cœur",dim:"8 × 8 cm",note:"Poitrine gauche — l’emplacement par défaut d’un logo d’entreprise."},
+ {n:2,nom:"Poitrine centrée",dim:"21 × 29,7 cm (A4)",note:"Visuel principal, centré 5 cm sous l’encolure."},
+ {n:3,nom:"Manche",dim:"7 × 22 cm",note:"Sponsor, site web, numéro. Non disponible en broderie sur maille fine."},
+ {n:4,nom:"Nuque",dim:"5 × 5 cm",note:"Signature discrète, sous la couture d’encolure."},
+ {n:5,nom:"Haut de dos",dim:"30 × 10 cm",note:"Nom de société ou d’association, lisible à distance."},
+ {n:6,nom:"Dos complet",dim:"30 × 40 cm (A3+)",note:"Visuel plein dos. Supplément grand format en sérigraphie."}
+];
+
+/* ───────── Produits ───────── */
+function p(o){return o}
+var PRODUITS=[
+ p({ref:"TS-190",marque:"B&C",nom:"E190",fam:"tshirt",gamme:"confort",forme:"tshirt",
+   matiere:"100 % coton jersey semi-peigné",gram:190,base:4.30,
+   col:["blanc","noir","marine","royal","rouge","gris","anthracite","vert","ciel","bordeaux","sable","jaune"],
+   tailles:["XS","S","M","L","XL","2XL","3XL"],coupes:"Unisexe, femme, enfant",
+   tech:["flocage","dtf","serigraphie","broderie"],zones:[1,2,3,4,5,6],
+   note:"La référence de fond de gamme la plus fournie en coloris : idéale quand plusieurs services veulent chacun leur teinte."}),
+ p({ref:"TS-IMP",marque:"SOL’S",nom:"Imperial 11500",fam:"tshirt",gamme:"premium",forme:"tshirt",
+   matiere:"100 % coton ring-spun peigné",gram:190,base:5.10,
+   col:["blanc","noir","marine","royal","rouge","bordeaux","kaki","canard","rose","violet","gris","creme"],
+   tailles:["XS","S","M","L","XL","2XL","3XL","4XL"],coupes:"Unisexe, femme, enfant",
+   tech:["flocage","dtf","serigraphie"],zones:[1,2,3,4,5,6],
+   note:"Maille plus dense et plus régulière que l’entrée de gamme : c’est le support qui rend le mieux un DTF photo."}),
+ p({ref:"TS-CRE",marque:"Stanley/Stella",nom:"Creator 2.0",fam:"tshirt",gamme:"bio",forme:"tshirt",
+   matiere:"100 % coton biologique peigné — GOTS, OEKO-TEX",gram:180,base:7.40,
+   col:["blanc","naturel","noir","marine","canard","kaki","ocre","bordeaux","gris"],
+   tailles:["XS","S","M","L","XL","2XL","3XL"],coupes:"Unisexe, femme",
+   tech:["flocage","dtf","serigraphie","broderie"],zones:[1,2,3,4,5,6],
+   note:"À privilégier dès qu’une charte RSE ou un marché public exige une traçabilité certifiée."}),
+ p({ref:"TS-150",marque:"Fruit of the Loom",nom:"Iconic 150",fam:"tshirt",gamme:"essentiel",forme:"tshirt",
+   matiere:"100 % coton (gris chiné 97/3)",gram:150,base:2.85,
+   col:["blanc","noir","marine","royal","rouge","gris","jaune","orange","pomme"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe, femme, enfant",
+   tech:["flocage","dtf","serigraphie"],zones:[1,2,5,6],
+   note:"Le prix plancher pour une distribution d’événement. Maille légère, non destinée à un usage quotidien."}),
+ p({ref:"TS-ML359",marque:"Kariban",nom:"K359 manches longues",fam:"tshirt",gamme:"confort",forme:"tshirtML",
+   matiere:"100 % coton jersey, poignets côtes",gram:180,base:6.20,
+   col:["blanc","noir","marine","gris","bordeaux","vert"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe",
+   tech:["flocage","dtf","serigraphie","broderie"],zones:[1,2,3,4,5,6],
+   note:"La solution mi-saison sous une polaire ou une softshell, sans passer au sweat."}),
+
+ p({ref:"PO-SAF",marque:"B&C",nom:"Safran",fam:"polo",gamme:"confort",forme:"polo",
+   matiere:"100 % coton piqué, col côtes",gram:180,base:9.80,
+   col:["blanc","noir","marine","royal","rouge","gris","vert","ciel","bordeaux"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage","dtf"],zones:[1,3,4,5],
+   note:"Le polo d’équipe le plus courant. Le piqué coton accroche parfaitement la broderie."}),
+ p({ref:"PO-PER",marque:"SOL’S",nom:"Perfect Men 11346",fam:"polo",gamme:"premium",forme:"polo",
+   matiere:"100 % coton piqué peigné, patte 3 boutons",gram:180,base:11.50,
+   col:["blanc","noir","marine","royal","rouge","bordeaux","kaki","gris","ciel","creme"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage","dtf"],zones:[1,3,4,5],
+   note:"Tenue de col nettement supérieure après lavages répétés : à retenir pour un personnel en contact client."}),
+ p({ref:"PO-WK738",marque:"WK. Designed To Work",nom:"WK738",fam:"polo",gamme:"pro",forme:"polo",
+   matiere:"65 % polyester / 35 % coton piqué, poche poitrine",gram:210,base:13.90,
+   col:["blanc","marine","noir","grisfonce","royal","rouge"],
+   tailles:["S","M","L","XL","2XL","3XL","4XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage","dtf"],zones:[1,3,4,5],
+   note:"Polycoton renforcé : résiste au lavage industriel à 60 °C et au port en atelier."}),
+ p({ref:"PO-K241",marque:"Kariban",nom:"K241 manches longues",fam:"polo",gamme:"confort",forme:"polo",
+   matiere:"100 % coton piqué, poignets côtes",gram:200,base:12.40,
+   col:["blanc","noir","marine","gris","rouge","vert"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme",
+   tech:["broderie","flocage","dtf"],zones:[1,3,4,5],
+   note:"Version hiver du polo d’accueil, sans changer l’allure de la tenue."}),
+
+ p({ref:"SW-SETIN",marque:"B&C",nom:"Set In col rond",fam:"sweat",gamme:"confort",forme:"sweat",
+   matiere:"80 % coton / 20 % polyester, molleton gratté",gram:280,base:13.20,
+   col:["blanc","noir","marine","gris","royal","rouge","bordeaux","vert"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe",
+   tech:["flocage","dtf","serigraphie","broderie"],zones:[1,2,3,4,5,6],
+   note:"Le sweat de base : côtes lycra aux poignets et à la taille, pas de déformation après lavage."}),
+ p({ref:"SW-SNAKE",marque:"SOL’S",nom:"Snake capuche",fam:"sweat",gamme:"confort",forme:"hoodie",
+   matiere:"50 % coton / 50 % polyester, poche kangourou",gram:280,base:15.80,
+   col:["noir","marine","gris","bordeaux","kaki","blanc","royal","rouge"],
+   tailles:["XS","S","M","L","XL","2XL","3XL"],coupes:"Unisexe, enfant",
+   tech:["flocage","dtf","serigraphie"],zones:[1,3,4,5,6],
+   note:"La poche kangourou interdit un marquage centré bas : prévoir le visuel principal dans le dos."}),
+ p({ref:"SW-CRU",marque:"Stanley/Stella",nom:"Cruiser 2.0",fam:"sweat",gamme:"bio",forme:"sweat",
+   matiere:"85 % coton biologique / 15 % polyester recyclé — GOTS",gram:350,base:24.50,
+   col:["naturel","noir","marine","canard","kaki","gris","bordeaux","ocre"],
+   tailles:["XS","S","M","L","XL","2XL","3XL"],coupes:"Unisexe",
+   tech:["broderie","dtf","serigraphie","flocage"],zones:[1,2,3,4,5,6],
+   note:"350 g/m² : le seul molleton du catalogue assez dense pour recevoir une broderie pleine poitrine."}),
+ p({ref:"SW-K479",marque:"Kariban",nom:"K479 zippé capuche",fam:"sweat",gamme:"confort",forme:"zip",
+   matiere:"80 % coton / 20 % polyester, zip métal, 2 poches",gram:280,base:18.90,
+   col:["noir","marine","gris","royal","rouge","blanc","vert"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe, femme",
+   tech:["broderie","flocage","dtf"],zones:[1,3,4,5,6],
+   note:"Le zip central coupe tout visuel de face : marquage cœur à gauche, visuel complet dans le dos."}),
+ p({ref:"SW-R262",marque:"Russell",nom:"262M col rond",fam:"sweat",gamme:"premium",forme:"sweat",
+   matiere:"50 % coton / 50 % polyester, traitement anti-boulochage",gram:295,base:15.40,
+   col:["marine","noir","gris","bordeaux","blanc","royal"],
+   tailles:["S","M","L","XL","2XL","3XL","4XL"],coupes:"Unisexe",
+   tech:["flocage","dtf","serigraphie","broderie"],zones:[1,2,3,4,5,6],
+   note:"Anti-boulochage : le bon choix pour un parc renouvelé tous les trois ou quatre ans."}),
+
+ p({ref:"VE-K401",marque:"Kariban",nom:"K401 softshell 2 couches",fam:"veste",gamme:"confort",forme:"zip",
+   matiere:"96 % polyester / 4 % élasthanne, membrane 8 000 mm, doublure micropolaire",gram:340,base:29.90,
+   col:["noir","marine","grisfonce","royal","rouge"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage"],zones:[1,3,4,5],
+   note:"Sur membrane, la broderie doit rester en petit format : au-delà, les perforations dégradent l’imperméabilité."}),
+ p({ref:"VE-R231",marque:"Result",nom:"R231M softshell 3 couches",fam:"veste",gamme:"premium",forme:"zip",
+   matiere:"94 % polyester / 6 % élasthanne, 8 000 mm / 2 000 g, coutures étanchéifiées",gram:320,base:36.50,
+   col:["noir","marine","grisfonce","canard"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage"],zones:[1,3,4,5],
+   note:"Coutures étanchéifiées et coupe-vent total : la pièce à offrir plutôt qu’à distribuer."}),
+ p({ref:"VE-SIR",marque:"B&C",nom:"Sirocco coupe-vent",fam:"veste",gamme:"essentiel",forme:"zip",
+   matiere:"100 % polyamide déperlant, pliable dans sa poche",gram:65,base:17.20,
+   col:["noir","marine","royal","rouge","blanc"],
+   tailles:["S","M","L","XL","2XL"],coupes:"Unisexe",
+   tech:["flocage","dtf"],zones:[1,3,5],
+   note:"Matière fine : presse basse température obligatoire, broderie exclue."}),
+ p({ref:"VE-DOV",marque:"Regatta",nom:"Dover parka 4 en 1",fam:"veste",gamme:"premium",forme:"parka",
+   matiere:"100 % polyester enduit, doublure polaire zippée amovible, capuche intégrée",gram:0,base:62.00,
+   col:["noir","marine","grisfonce"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage"],zones:[1,4,5],
+   note:"Quatre vêtements en un : penser à marquer aussi la polaire intérieure, portée seule la moitié de l’année."}),
+ p({ref:"VE-K6132",marque:"Kariban",nom:"K6132 bodywarmer",fam:"veste",gamme:"confort",forme:"bodywarmer",
+   matiere:"100 % polyester matelassé, garnissage 180 g, 2 poches zippées",gram:200,base:27.40,
+   col:["noir","marine","grisfonce","kaki"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Homme, femme",
+   tech:["broderie","flocage"],zones:[1,4,5],
+   note:"Le matelassage impose un marquage sur zone plate : cœur et haut de dos, entre deux surpiqûres."}),
+
+ p({ref:"PR-WK794",marque:"WK. Designed To Work",nom:"WK794 pantalon multipoches",fam:"pro",gamme:"pro",forme:"pantalon",
+   matiere:"65 % polyester / 35 % coton sergé, genoux préformés, 8 poches",gram:245,base:32.00,
+   col:["marine","noir","grisfonce","kaki"],
+   tailles:["38","40","42","44","46","48","50","52","54"],coupes:"Homme, femme",
+   tech:["broderie","flocage"],zones:[3],
+   note:"Marquage limité à la cuisse : réserver le logo aux hauts, le pantalon reste neutre."}),
+ p({ref:"PR-HV3",marque:"Yoko",nom:"Parka haute visibilité classe 3",fam:"pro",gamme:"pro",forme:"parka",
+   matiere:"100 % polyester enduit PU, bandes rétroréfléchissantes — EN ISO 20471 classe 3",gram:0,base:58.00,
+   col:["jaunehv","orangehv"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe",
+   tech:["broderie","flocage"],zones:[1,5],
+   note:"Attention : tout marquage réduit la surface fluorescente. Rester dans les zones autorisées sous peine de perdre la certification."}),
+ p({ref:"PR-GIL2",marque:"Result",nom:"Gilet haute visibilité classe 2",fam:"pro",gamme:"pro",forme:"gilet",
+   matiere:"100 % polyester, fermeture scratch — EN ISO 20471 classe 2",gram:120,base:6.90,
+   col:["jaunehv","orangehv"],
+   tailles:["S/M","L/XL","2XL/3XL"],coupes:"Unisexe",
+   tech:["flocage","dtf"],zones:[1,5],
+   note:"Le marquage se fait entre les bandes réfléchissantes, jamais dessus."}),
+ p({ref:"PR-K885",marque:"Kariban",nom:"K885 tablier bistro",fam:"pro",gamme:"pro",forme:"tablier",
+   matiere:"65 % polyester / 35 % coton sergé, poche ventrale double",gram:240,base:11.60,
+   col:["noir","marine","bordeaux","kaki","gris","blanc"],
+   tailles:["TU"],coupes:"Mixte",
+   tech:["broderie","flocage","dtf","serigraphie"],zones:[1,2],
+   note:"Support idéal pour la broderie : sergé stable, pas de déformation, marquage très exposé en salle."}),
+
+ p({ref:"SP-PA438",marque:"Proact",nom:"PA438 maillot respirant",fam:"sport",gamme:"essentiel",forme:"tshirt",
+   matiere:"100 % polyester maille respirante, séchage rapide",gram:140,base:5.60,
+   col:["blanc","noir","marine","royal","rouge","jaune","orange","pomme","ciel"],
+   tailles:["XS","S","M","L","XL","2XL","3XL"],coupes:"Unisexe, enfant",
+   tech:["flocage","dtf"],zones:[1,2,3,5,6],
+   note:"Polyester : presse basse température et vinyle spécifique pour éviter la migration de couleur du support."}),
+ p({ref:"SP-PA152",marque:"Proact",nom:"PA152 short interlock",fam:"sport",gamme:"essentiel",forme:"short",
+   matiere:"100 % polyester interlock, taille élastiquée",gram:140,base:8.40,
+   col:["noir","marine","royal","rouge","blanc"],
+   tailles:["XS","S","M","L","XL","2XL"],coupes:"Unisexe, enfant",
+   tech:["flocage","dtf"],zones:[3],
+   note:"Marquage sur la cuisse gauche uniquement, format réduit."}),
+ p({ref:"SP-K6115",marque:"Kariban",nom:"K6115 coupe-vent club",fam:"sport",gamme:"confort",forme:"zip",
+   matiere:"100 % polyester déperlant, capuche roulable, doublure filet",gram:120,base:24.00,
+   col:["noir","marine","royal","rouge"],
+   tailles:["S","M","L","XL","2XL","3XL"],coupes:"Unisexe",
+   tech:["flocage","dtf","broderie"],zones:[1,3,5],
+   note:"La pièce qui porte le mieux les logos de partenaires : manche, cœur et haut de dos disponibles simultanément."}),
+
+ p({ref:"AC-B15",marque:"Beechfield",nom:"B15 casquette 5 panneaux",fam:"acc",gamme:"confort",forme:"casquette",
+   matiere:"100 % coton sergé, fermeture métal réglable",gram:0,base:4.90,
+   col:["noir","marine","blanc","rouge","royal","kaki","gris","bordeaux"],
+   tailles:["TU"],coupes:"Mixte",
+   tech:["broderie","flocage"],zones:[1],
+   note:"Broderie frontale 10 × 5 cm maximum, sur le panneau avant renforcé."}),
+ p({ref:"AC-B45",marque:"Beechfield",nom:"B45 bonnet maille douce",fam:"acc",gamme:"essentiel",forme:"bonnet",
+   matiere:"100 % acrylique, maille double avec revers",gram:0,base:4.20,
+   col:["noir","marine","gris","bordeaux","rouge","kaki"],
+   tailles:["TU"],coupes:"Mixte",
+   tech:["broderie"],zones:[1],
+   note:"Marquage sur le revers uniquement. Broderie recommandée : le flocage casse sur une maille extensible."}),
+ p({ref:"AC-W101",marque:"Westford Mill",nom:"W101 tote bag",fam:"acc",gamme:"essentiel",forme:"tote",
+   matiere:"100 % coton, anses longues 70 cm",gram:140,base:2.40,
+   col:["naturel","blanc","noir","marine","rouge"],
+   tailles:["38 × 42 cm"],coupes:"—",
+   tech:["serigraphie","dtf","flocage"],zones:[2],
+   note:"Le meilleur rapport visibilité / prix du catalogue en sérigraphie une couleur sur longue série."}),
+ p({ref:"AC-KI0203",marque:"Kimood",nom:"KI0203 sac à dos",fam:"acc",gamme:"confort",forme:"sacados",
+   matiere:"Polyester 600D, compartiment ordinateur 15 pouces",gram:0,base:14.50,
+   col:["noir","marine","grisfonce","rouge"],
+   tailles:["TU"],coupes:"—",
+   tech:["broderie","dtf","flocage"],zones:[1,2],
+   note:"Le marquage passe sur la poche avant : vérifier qu’aucune couture ne traverse la zone."}),
+ p({ref:"AC-K101",marque:"Kariban",nom:"K101 serviette éponge 100 × 50",fam:"acc",gamme:"confort",forme:"serviette",
+   matiere:"100 % coton éponge peignée",gram:450,base:9.30,
+   col:["blanc","noir","marine","royal","rouge","gris","ciel"],
+   tailles:["100 × 50 cm"],coupes:"—",
+   tech:["broderie"],zones:[1],
+   note:"Éponge : seule la broderie tient. Prévoir un fond de broderie pour éviter que les boucles ne remontent."})
+];
+
+/* ───────── Utilitaires ───────── */
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function eur(n){return n.toFixed(2).replace(".",",")+" €"}
+function arr5(n){return Math.round(n*20)/20}
+function rgb(h){h=h.replace("#","");if(h.length===3)h=h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+  return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+function lum(h){var c=rgb(h).map(function(v){v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});
+  return .2126*c[0]+.7152*c[1]+.0722*c[2]}
+function melange(h,vers,t){var a=rgb(h),b=rgb(vers);
+  return"#"+[0,1,2].map(function(i){return Math.round(a[i]+(b[i]-a[i])*t).toString(16).padStart(2,"0")}).join("")}
+function contour(h){return lum(h)>.42?melange(h,"#000000",.42):melange(h,"#FFFFFF",.34)}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function vetement(forme,hex){
+  var f=FORMES[forme]||FORMES.tshirt, s=contour(hex);
+  return '<svg viewBox="0 0 120 130" role="img" aria-hidden="true">'+
+    '<g fill="'+hex+'" stroke="'+s+'" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round">'+f+'</g></svg>';
+}
+function prodParRef(r){for(var i=0;i<PRODUITS.length;i++)if(PRODUITS[i].ref===r)return PRODUITS[i];return null}
+function techParId(t){for(var i=0;i<TECHNIQUES.length;i++)if(TECHNIQUES[i].id===t)return TECHNIQUES[i];return null}
+function idxPalier(q){var i=0;for(var k=0;k<PALIERS.length;k++)if(q>=PALIERS[k])i=k;return i}
+function prixTextile(pr,i){return arr5(pr.base*COEF[i])}
+
+/* ───────── État ───────── */
+var etat={q:"",fam:[],tech:[],tri:"famille",couleur:{},produitOuvert:null};
+var devis=[];
+try{var brut=localStorage.getItem("comwear-devis-v1");if(brut)devis=JSON.parse(brut)||[]}catch(e){devis=[]}
+function sauver(){try{localStorage.setItem("comwear-devis-v1",JSON.stringify(devis))}catch(e){}}
+function couleurDe(pr){var i=etat.couleur[pr.ref];return pr.col[i==null?0:i]}
+
+/* ───────── Filtres ───────── */
+function construireFiltres(){
+  var jf=$("#jeu-familles"),jt=$("#jeu-techniques");
+  FAMILLES.forEach(function(f){
+    var n=PRODUITS.filter(function(p){return p.fam===f.id}).length;
+    var b=document.createElement("button");
+    b.type="button";b.className="puce";b.setAttribute("aria-pressed","false");b.dataset.fam=f.id;
+    b.innerHTML=esc(f.nom)+'<span class="code">'+n+"</span>";
+    b.addEventListener("click",function(){bascule(etat.fam,f.id);b.setAttribute("aria-pressed",etat.fam.indexOf(f.id)>-1?"true":"false");rendre()});
+    jf.appendChild(b);
+  });
+  TECHNIQUES.forEach(function(t){
+    var b=document.createElement("button");
+    b.type="button";b.className="puce";b.setAttribute("aria-pressed","false");
+    b.textContent=t.nom;
+    b.addEventListener("click",function(){bascule(etat.tech,t.id);b.setAttribute("aria-pressed",etat.tech.indexOf(t.id)>-1?"true":"false");rendre()});
+    jt.appendChild(b);
+  });
+}
+function bascule(tab,v){var i=tab.indexOf(v);if(i>-1)tab.splice(i,1);else tab.push(v)}
+
+function filtres(){
+  var q=etat.q.trim().toLowerCase();
+  return PRODUITS.filter(function(p){
+    if(etat.fam.length&&etat.fam.indexOf(p.fam)<0)return false;
+    if(etat.tech.length&&!etat.tech.every(function(t){return p.tech.indexOf(t)>-1}))return false;
+    if(q){
+      var foin=[p.ref,p.marque,p.nom,p.matiere,GAMMES[p.gamme],p.note].join(" ").toLowerCase();
+      if(foin.indexOf(q)<0)return false;
+    }
+    return true;
+  });
+}
+
+/* ───────── Grille ───────── */
+function carte(pr){
+  var hex=NUANCES[couleurDe(pr)][1];
+  var choisi=devis.some(function(l){return l.ref===pr.ref})?"1":"0";
+  var el=document.createElement("article");
+  el.className="fiche";el.dataset.ref=pr.ref;el.dataset.choisi=choisi;
+  el.tabIndex=0;el.setAttribute("role","button");
+  el.setAttribute("aria-label","Voir la fiche "+pr.marque+" "+pr.nom);
+  var pastilles=pr.col.slice(0,7).map(function(c,i){
+    return '<button type="button" class="pastille-col" data-col="'+i+'" style="background:'+NUANCES[c][1]+'"'+
+      ' aria-pressed="'+(couleurDe(pr)===c?"true":"false")+'" title="'+esc(NUANCES[c][0])+'"><span class="invisible">'+esc(NUANCES[c][0])+'</span></button>';
+  }).join("");
+  var reste=pr.col.length>7?'<span class="nuancier__reste">+'+(pr.col.length-7)+"</span>":"";
+  el.innerHTML=
+    '<div class="fiche__haut"><span class="ref">'+esc(pr.ref)+'</span>'+
+      '<span class="etiq etiq--'+pr.gamme+'">'+esc(GAMMES[pr.gamme])+'</span></div>'+
+    '<div class="fiche__img">'+vetement(pr.forme,hex)+'<span class="fiche__choisi">au devis</span></div>'+
+    '<div class="fiche__corps">'+
+      '<div><p class="fiche__marque">'+esc(pr.marque)+'</p><h3>'+esc(pr.nom)+'</h3></div>'+
+      '<p class="compo">'+esc(pr.matiere)+(pr.gram?' · '+pr.gram+' g/m²':"")+'</p>'+
+      '<div class="nuancier">'+pastilles+reste+'</div>'+
+      '<div class="tailles">'+pr.tailles.map(function(t){return '<span class="taille">'+esc(t)+"</span>"}).join("")+'</div>'+
+    '</div>'+
+    '<div class="fiche__bas"><span class="prix__lib">dès</span><span class="prix">'+eur(prixTextile(pr,4))+
+      '</span><span class="prix__lib">HT</span><span class="fiche__voir">Fiche →</span></div>';
+  el.addEventListener("click",function(){ouvrirProduit(pr.ref)});
+  el.addEventListener("keydown",function(ev){
+    if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();ouvrirProduit(pr.ref)}});
+  $$(".pastille-col",el).forEach(function(b){
+    b.addEventListener("click",function(ev){
+      ev.stopPropagation();
+      etat.couleur[pr.ref]=parseInt(b.dataset.col,10);
+      var svg=$(".fiche__img",el);
+      svg.innerHTML=vetement(pr.forme,NUANCES[couleurDe(pr)][1])+'<span class="fiche__choisi">au devis</span>';
+      $$(".pastille-col",el).forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});
+    });
+  });
+  return el;
+}
+
+function rendre(){
+  var liste=filtres(),hote=$("#familles");
+  hote.innerHTML="";
+  if(!liste.length){
+    hote.innerHTML='<p class="vide"><b>Aucune référence ne correspond.</b>Élargissez la recherche ou retirez un filtre de marquage.</p>';
+    return;
+  }
+  if(etat.tri!=="famille"){
+    var t=liste.slice();
+    if(etat.tri==="prix-asc")t.sort(function(a,b){return a.base-b.base});
+    if(etat.tri==="prix-desc")t.sort(function(a,b){return b.base-a.base});
+    if(etat.tri==="grammage")t.sort(function(a,b){return b.gram-a.gram});
+    var sec=document.createElement("section");sec.className="famille";
+    sec.innerHTML='<div class="famille__tete"><h2>'+
+      (etat.tri==="grammage"?"Par grammage décroissant":etat.tri==="prix-asc"?"Par prix croissant":"Par prix décroissant")+
+      '</h2><p>Tri transversal, toutes familles confondues.</p><span class="famille__cpt">'+t.length+' références</span></div>';
+    var g=document.createElement("div");g.className="grille";
+    t.forEach(function(p){g.appendChild(carte(p))});
+    sec.appendChild(g);hote.appendChild(sec);
+    return;
+  }
+  FAMILLES.forEach(function(f){
+    var items=liste.filter(function(p){return p.fam===f.id});
+    if(!items.length)return;
+    var sec=document.createElement("section");sec.className="famille";sec.id="fam-"+f.id;
+    sec.innerHTML='<div class="famille__tete"><h2>'+esc(f.nom)+'</h2><p>'+esc(f.desc)+
+      '</p><span class="famille__cpt">'+items.length+" référence"+(items.length>1?"s":"")+"</span></div>";
+    var g=document.createElement("div");g.className="grille";
+    items.forEach(function(p){g.appendChild(carte(p))});
+    sec.appendChild(g);hote.appendChild(sec);
+  });
+}
+
+/* ───────── Tiroirs ───────── */
+function ouvrir(el){
+  $("#voile").dataset.ouvert="1";
+  el.dataset.ouvert="1";el.setAttribute("aria-hidden","false");
+  var f=$(".fermer",el);if(f)f.focus();
+}
+function fermerTout(){
+  $("#voile").dataset.ouvert="0";
+  $$(".tiroir").forEach(function(t){t.dataset.ouvert="0";t.setAttribute("aria-hidden","true")});
+  etat.produitOuvert=null;
+}
+
+function tableauPaliers(pr,qte){
+  var i=idxPalier(qte||1);
+  return '<table class="paliers"><caption class="invisible">Tarif dégressif du textile</caption>'+
+    '<thead><tr><th scope="col">Quantité</th><th scope="col">Prix unitaire HT</th><th scope="col">Total textile</th></tr></thead><tbody>'+
+    PALIERS.map(function(seuil,k){
+      var pu=prixTextile(pr,k);
+      return '<tr data-actif="'+(k===i?"1":"0")+'"><td>'+PALIERS_LIB[k]+'</td><td>'+eur(pu)+
+        "</td><td>"+eur(pu*seuil)+" <span style=\"opacity:.55\">/ "+seuil+"</span></td></tr>";
+    }).join("")+"</tbody></table>";
+}
+
+function ouvrirProduit(ref){
+  var pr=prodParRef(ref);if(!pr)return;
+  etat.produitOuvert=ref;
+  var hex=NUANCES[couleurDe(pr)][1];
+  $("#titre-produit").textContent=pr.marque+" · "+pr.nom;
+  var zones=ZONES.filter(function(z){return pr.zones.indexOf(z.n)>-1});
+  $("#corps-produit").innerHTML=
+    '<div class="detail__img" id="detail-img">'+vetement(pr.forme,hex)+'</div>'+
+    '<div class="detail__titre"><p class="sous">'+esc(pr.ref)+' · '+esc(pr.marque)+'</p>'+
+      '<h3>'+esc(pr.nom)+'</h3><p style="color:var(--texte-2);font-size:var(--t-s)">'+esc(pr.note)+'</p></div>'+
+    '<div><p class="bloc-lib">Coloris <span style="text-transform:none;letter-spacing:0">'+pr.col.length+'</span></p>'+
+      '<div class="nuancier nuancier--large" id="nuancier-detail">'+
+      pr.col.map(function(c,i){
+        return '<button type="button" class="pastille-col" data-col="'+i+'" style="background:'+NUANCES[c][1]+'" aria-pressed="'+
+          (couleurDe(pr)===c?"true":"false")+'" title="'+esc(NUANCES[c][0])+'"><span class="invisible">'+esc(NUANCES[c][0])+"</span></button>";
+      }).join("")+"</div><p class=\"col-nom\" id=\"col-nom\">"+esc(NUANCES[couleurDe(pr)][0])+"</p></div>"+
+    '<div><p class="bloc-lib">Caractéristiques</p><dl class="carac">'+
+      "<dt>Matière</dt><dd>"+esc(pr.matiere)+"</dd>"+
+      (pr.gram?"<dt>Grammage</dt><dd>"+pr.gram+" g/m²</dd>":"")+
+      "<dt>Coupes</dt><dd>"+esc(pr.coupes)+"</dd>"+
+      "<dt>Tailles</dt><dd><span class=\"tailles tailles--large\">"+
+        pr.tailles.map(function(t){return '<span class="taille">'+esc(t)+"</span>"}).join("")+"</span></dd>"+
+      "<dt>Marquage</dt><dd>"+pr.tech.map(function(t){return esc(techParId(t).nom)}).join(" · ")+"</dd>"+
+    "</dl></div>"+
+    '<div><p class="bloc-lib">Emplacements possibles</p><div class="zones__liste">'+
+      zones.map(function(z){return '<div class="zone"><span class="zone__num">'+z.n+"</span><b>"+esc(z.nom)+
+        "</b><span>"+esc(z.dim)+"</span></div>"}).join("")+"</div></div>"+
+    '<div><p class="bloc-lib">Tarif textile dégressif — HT, hors marquage</p><div id="paliers-produit">'+
+      tableauPaliers(pr,10)+"</div></div>";
+
+  var techOpts=pr.tech.map(function(t){var T=techParId(t);
+    return '<option value="'+t+'">'+esc(T.nom)+" — dès "+T.des+"</option>"}).join("");
+  $("#pied-produit").innerHTML=
+    '<div class="ligne-champs">'+
+      '<div class="champ"><label for="ch-taille">Taille</label><select id="ch-taille">'+
+        pr.tailles.map(function(t){return '<option>'+esc(t)+"</option>"}).join("")+"</select></div>"+
+      '<div class="champ"><label for="ch-tech">Marquage</label><select id="ch-tech">'+techOpts+"</select></div>"+
+      '<div class="champ" style="flex:0 0 92px"><label for="ch-qte">Quantité</label>'+
+        '<input id="ch-qte" type="number" min="1" step="1" value="10"></div>'+
+    "</div>"+
+    '<p class="recap"><span id="recap-detail"></span><b id="recap-total">—</b><span style="flex:none">HT</span></p>'+
+    '<button class="btn btn--devis" type="button" id="ajouter" style="justify-content:center">Ajouter au devis</button>';
+
+  function majEstim(){
+    var q=Math.max(1,parseInt($("#ch-qte").value,10)||1);
+    var T=techParId($("#ch-tech").value),i=idxPalier(q);
+    var pt=prixTextile(pr,i),pm=T.prix[i];
+    $("#paliers-produit").innerHTML=tableauPaliers(pr,q);
+    if(pm==null){
+      $("#recap-detail").innerHTML=esc(T.nom)+" : minimum "+T.min+" pièces";
+      $("#recap-total").textContent="—";
+      $("#ajouter").disabled=true;$("#ajouter").style.opacity=".5";
+      return;
+    }
+    $("#ajouter").disabled=false;$("#ajouter").style.opacity="1";
+    var fixe=T.fixe;
+    $("#recap-detail").innerHTML="textile "+eur(pt)+" + marquage "+eur(pm)+" × "+q+
+      (fixe?" + "+eur(fixe)+" de mise en route":"")+(q<T.min?' · <span style="color:var(--alerte)">sous le minimum de '+T.min+"</span>":"");
+    $("#recap-total").textContent=eur((pt+pm)*q+fixe);
+  }
+  ["ch-qte","ch-tech"].forEach(function(id){
+    $("#"+id).addEventListener("input",majEstim);$("#"+id).addEventListener("change",majEstim)});
+  majEstim();
+
+  $$("#nuancier-detail .pastille-col").forEach(function(b){
+    b.addEventListener("click",function(){
+      etat.couleur[pr.ref]=parseInt(b.dataset.col,10);
+      var c=couleurDe(pr);
+      $("#detail-img").innerHTML=vetement(pr.forme,NUANCES[c][1]);
+      $("#col-nom").textContent=NUANCES[c][0];
+      $$("#nuancier-detail .pastille-col").forEach(function(o){o.setAttribute("aria-pressed",o===b?"true":"false")});
+      var fiche=$('.fiche[data-ref="'+pr.ref+'"]');
+      if(fiche){$(".fiche__img",fiche).innerHTML=vetement(pr.forme,NUANCES[c][1])+'<span class="fiche__choisi">au devis</span>';}
+    });
+  });
+
+  $("#ajouter").addEventListener("click",function(){
+    var q=Math.max(1,parseInt($("#ch-qte").value,10)||1);
+    var l={ref:pr.ref,col:couleurDe(pr),taille:$("#ch-taille").value,tech:$("#ch-tech").value,qte:q};
+    var cle=function(x){return x.ref+"|"+x.col+"|"+x.taille+"|"+x.tech};
+    var ex=devis.filter(function(x){return cle(x)===cle(l)})[0];
+    if(ex)ex.qte+=q;else devis.push(l);
+    sauver();majCompteur();rendreDevis();
+    var fiche=$('.fiche[data-ref="'+pr.ref+'"]');if(fiche)fiche.dataset.choisi="1";
+    fermerTout();ouvrir($("#tiroir-devis"));
+  });
+
+  ouvrir($("#tiroir-produit"));
+}
+
+/* ───────── Devis ───────── */
+function majCompteur(){
+  var n=devis.reduce(function(s,l){return s+l.qte},0);
+  $("#cpt-devis").textContent=n;
+}
+function calcul(){
+  var lignes=devis.map(function(l){
+    var pr=prodParRef(l.ref),T=techParId(l.tech),i=idxPalier(l.qte);
+    var pt=prixTextile(pr,i),pm=T.prix[i];
+    var manque=pm==null||l.qte<T.min;
+    if(pm==null)pm=T.prix[2]||0;
+    return{l:l,pr:pr,T:T,pt:pt,pm:pm,manque:manque,total:(pt+pm)*l.qte};
+  });
+  var sous=lignes.reduce(function(s,x){return s+x.total},0);
+  var techs={};lignes.forEach(function(x){if(x.T.fixe)techs[x.T.id]=x.T});
+  var fixes=Object.keys(techs).map(function(k){return techs[k]});
+  var totalFixes=fixes.reduce(function(s,t){return s+t.fixe},0);
+  var ht=sous+totalFixes;
+  return{lignes:lignes,sous:sous,fixes:fixes,totalFixes:totalFixes,ht:ht,tva:ht*.2,ttc:ht*1.2};
+}
+function rendreDevis(){
+  var c=calcul(),corps=$("#corps-devis"),pied=$("#pied-devis");
+  if(!devis.length){
+    corps.innerHTML='<p class="vide" style="padding:34px 0"><b>Votre devis est vide.</b>'+
+      "Ouvrez une fiche produit, choisissez un coloris, une taille et une technique, puis ajoutez-la ici.</p>";
+    pied.innerHTML="";majCompteur();return;
+  }
+  corps.innerHTML='<div class="lignes">'+c.lignes.map(function(x,k){
+    return '<div class="ligne"><div class="ligne__haut">'+
+      '<span class="ligne__pt" style="background:'+NUANCES[x.l.col][1]+'"></span>'+
+      '<span class="ligne__nom"><b>'+esc(x.pr.marque)+" "+esc(x.pr.nom)+"</b>"+
+        "<span>"+esc(x.pr.ref)+" · "+esc(NUANCES[x.l.col][0])+" · taille "+esc(x.l.taille)+"</span></span>"+
+      '<button class="suppr" type="button" data-suppr="'+k+'">retirer</button></div>'+
+      '<div class="ligne__det">'+
+        '<label class="invisible" for="qte-'+k+'">Quantité</label>'+
+        '<input class="qte" id="qte-'+k+'" type="number" min="1" step="1" value="'+x.l.qte+'" data-qte="'+k+'">'+
+        "<span>"+esc(x.T.nom)+"</span>"+
+        "<span>"+eur(x.pt)+" + "+eur(x.pm)+"</span>"+
+        (x.manque?'<span style="color:var(--alerte)">min. '+x.T.min+" pièces</span>":"")+
+        '<span class="ligne__tot">'+eur(x.total)+"</span>"+
+      "</div></div>";
+  }).join("")+"</div>"+
+  (c.fixes.length?'<div><p class="bloc-lib">Frais de mise en route</p><div class="totaux">'+
+    c.fixes.map(function(t){return "<div><span class=\"code\">"+esc(t.nom)+" — "+esc(t.fixeLib)+"</span><span>"+eur(t.fixe)+"</span></div>"}).join("")+
+    "</div></div>":"")+
+  '<p class="compo">Estimation sur la base des paliers du catalogue. Les tailles 3XL et au-delà, les coloris '+
+  "haute visibilité et les marquages multi-emplacements peuvent faire l’objet d’un supplément.</p>";
+  pied.innerHTML='<div class="totaux">'+
+      '<div><span class="code">Sous-total textile + marquage</span><span>'+eur(c.sous)+"</span></div>"+
+      (c.totalFixes?'<div><span class="code">Mise en route</span><span>'+eur(c.totalFixes)+"</span></div>":"")+
+      '<div class="fort"><span>Total HT</span><span>'+eur(c.ht)+"</span></div>"+
+      '<div><span class="code">TVA 20 %</span><span>'+eur(c.tva)+"</span></div>"+
+      '<div><span class="code">Total TTC</span><span>'+eur(c.ttc)+"</span></div>"+
+    "</div>"+
+    '<div style="display:flex;gap:8px"><button class="btn btn--indigo" type="button" id="imprimer-devis" style="flex:1;justify-content:center">Imprimer le devis</button>'+
+    '<button class="btn" type="button" id="copier-devis">Copier</button></div>';
+
+  $$("[data-suppr]",corps).forEach(function(b){
+    b.addEventListener("click",function(){devis.splice(parseInt(b.dataset.suppr,10),1);sauver();rendreDevis();rendre()})});
+  $$("[data-qte]",corps).forEach(function(inp){
+    inp.addEventListener("change",function(){
+      devis[parseInt(inp.dataset.qte,10)].qte=Math.max(1,parseInt(inp.value,10)||1);sauver();rendreDevis()})});
+  $("#imprimer-devis").addEventListener("click",function(){
+    document.body.dataset.impression="devis";window.print()});
+  $("#copier-devis").addEventListener("click",function(){
+    var t=c.lignes.map(function(x){return x.l.qte+" × "+x.pr.marque+" "+x.pr.nom+" ("+x.pr.ref+", "+
+      NUANCES[x.l.col][0]+", "+x.l.taille+") — "+x.T.nom+" — "+eur(x.total)}).join("\n");
+    t+="\nTotal HT : "+eur(c.ht)+"  |  TTC : "+eur(c.ttc);
+    var b=$("#copier-devis");
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){b.textContent="Copié";
+        setTimeout(function(){b.textContent="Copier"},1600)},function(){b.textContent="Échec"});
+    }else{b.textContent="Indisponible"}
+  });
+  majCompteur();
+}
+window.addEventListener("afterprint",function(){document.body.dataset.impression=""});
+
+/* ───────── Techniques + zones ───────── */
+function rendreTechniques(){
+  $("#liste-techniques").innerHTML=TECHNIQUES.map(function(t){
+    return '<article class="technique"><h3>'+esc(t.nom)+"</h3><p>"+esc(t.resume)+"</p>"+
+      "<dl><dt>Idéal pour</dt><dd>"+esc(t.usage)+"</dd>"+
+      "<dt>Dès</dt><dd>"+esc(t.des)+"</dd>"+
+      "<dt>Prix / pièce</dt><dd>"+(t.prix[4]!=null?"dès "+eur(t.prix[4]):"—")+"</dd></dl></article>";
+  }).join("");
+  $("#tbody-techniques").innerHTML=TECHNIQUES.map(function(t){
+    return "<tr><td><b>"+esc(t.nom)+"</b></td><td>"+esc(t.rendu)+'</td><td class="code">'+esc(t.des)+
+      "</td><td>"+esc(t.couleurs)+"</td><td>"+esc(t.tenue)+"</td><td>"+esc(t.supports)+
+      '</td><td class="code">'+esc(t.delai)+"</td></tr>";
+  }).join("");
+  $("#tbody-marquage").innerHTML=TECHNIQUES.map(function(t){
+    return "<tr><td><b>"+esc(t.nom)+"</b></td>"+
+      t.prix.map(function(p){return "<td>"+(p==null?"—":eur(p))+"</td>"}).join("")+
+      '<td class="code">'+esc(t.fixeLib)+"</td></tr>";
+  }).join("");
+  $("#liste-zones").innerHTML=ZONES.map(function(z){
+    return '<div class="zone"><span class="zone__num">'+z.n+"</span><b>"+esc(z.nom)+"</b><span>"+esc(z.dim)+
+      '</span><p style="flex-basis:100%;margin:2px 0 0;font-size:var(--t-xs);color:var(--texte-2)">'+esc(z.note)+"</p></div>";
+  }).join("");
+  var tee=FORMES.tshirt;
+  var zr=function(x,y,w,h,n,ancre){
+    var cx=(ancre==="g"?x-9:x+w+9), cy=y+h/2;
+    return '<g><rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="1" '+
+      'style="fill:none;stroke:var(--accent);stroke-width:1.4;stroke-dasharray:3 2.4"/>'+
+      '<circle cx="'+cx+'" cy="'+cy+'" r="6.6" style="fill:var(--accent)"/>'+
+      '<text x="'+cx+'" y="'+(cy+3.3)+'" text-anchor="middle" '+
+      'style="font:600 8.6px var(--f-code);fill:var(--accent-encre)">'+n+"</text></g>";
+  };
+  var silhouette='<g style="fill:var(--surface-2);stroke:var(--trait-fort);stroke-width:2;stroke-linejoin:round">'+tee+"</g>";
+  var lib=function(t){return '<text x="60" y="132" text-anchor="middle" '+
+    'style="font:500 8px var(--f-code);letter-spacing:1.4px;fill:var(--texte-3)">'+t+"</text>"};
+  $("#schema-zones").innerHTML=
+    '<svg viewBox="0 0 300 142" role="img" aria-label="Sch\u00e9ma des emplacements de marquage, vue de face et vue de dos">'+
+    '<g transform="translate(16,2)">'+silhouette+
+      zr(64,34,15,15,1,"d")+zr(44,58,32,42,2,"g")+zr(88,28,12,11,3,"d")+lib("FACE")+"</g>"+
+    '<g transform="translate(164,2)">'+silhouette+
+      zr(53,20,14,9,4,"d")+zr(42,36,36,12,5,"g")+zr(42,56,36,46,6,"d")+lib("DOS")+"</g>"+
+    "</svg>";
+}
+
+/* ───────── Thème ───────── */
+(function theme(){
+  var b=$("#bascule-theme");
+  try{var t=localStorage.getItem("comwear-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}
+  b.addEventListener("click",function(){
+    var d=document.documentElement;
+    var actuel=d.dataset.theme||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+    var suivant=actuel==="dark"?"light":"dark";
+    d.dataset.theme=suivant;
+    try{localStorage.setItem("comwear-theme",suivant)}catch(e){}
+  });
+})();
+
+/* ───────── Branchements ───────── */
+$("#recherche").addEventListener("input",function(e){etat.q=e.target.value;rendre()});
+$("#tri").addEventListener("change",function(e){etat.tri=e.target.value;rendre()});
+$("#reinit").addEventListener("click",function(){
+  etat.q="";etat.fam=[];etat.tech=[];etat.tri="famille";
+  $("#recherche").value="";$("#tri").value="famille";
+  $$(".puce").forEach(function(p){p.setAttribute("aria-pressed","false")});
+  rendre();
+});
+$("#ouvrir-devis").addEventListener("click",function(){fermerTout();rendreDevis();ouvrir($("#tiroir-devis"))});
+$("#vider-devis").addEventListener("click",function(){
+  if(!devis.length)return;
+  devis=[];sauver();rendreDevis();rendre();
+});
+$("#voile").addEventListener("click",fermerTout);
+$$("[data-fermer]").forEach(function(b){b.addEventListener("click",fermerTout)});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")fermerTout()});
+$("#imprimer-catalogue").addEventListener("click",function(){document.body.dataset.impression="";window.print()});
+
+/* ───────── Démarrage ───────── */
+$("#chiffre-refs").textContent=PRODUITS.length;
+construireFiltres();
+rendre();
+rendreTechniques();
+rendreDevis();
+majCompteur();
+})();
+</script>
+</body>
+</html>
